@@ -36,5 +36,11 @@ namespace TextoConFormato
         private void Rojo_Checked(object sender, RoutedEventArgs e) => SalidaTextBlock.Foreground = Brushes.Red;
 
         private void Verde_Checked(object sender, RoutedEventArgs e) => SalidaTextBlock.Foreground = Brushes.Green;
+
+
+        private void NegritaCheckBox_Unchecked(object sender, RoutedEventArgs e) => SalidaTextBlock.FontWeight = FontWeights.Normal;
+
+        private void CursivaCheckBox_Unchecked(object sender, RoutedEventArgs e) => SalidaTextBlock.FontStyle = FontStyles.Normal;
+
     }
 }
