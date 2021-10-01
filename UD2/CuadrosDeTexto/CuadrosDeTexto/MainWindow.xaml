@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CuadrosDeTexto"
         mc:Ignorable="d"
-        Title="Cuadros de texto" Height="450" Width="800">
+        Title="Cuadros de texto" Height="450" Width="800" Icon="assets\32.ico">
     <Grid>
         <TextBlock x:Name="NombreTextBlock" HorizontalAlignment="Left" Margin="45,44,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" RenderTransformOrigin="0.058,0.696"/>
         <TextBlock x:Name="ApellidpTextBlock" HorizontalAlignment="Left" Margin="45,130,0,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" RenderTransformOrigin="0.169,0.811"/>
         <TextBlock x:Name="EdadTextBlock" HorizontalAlignment="Left" Margin="45,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="30" RenderTransformOrigin="0.967,-0.177"><Run Text="Edad"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Height="23" Margin="45,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ApellidoTextBox" HorizontalAlignment="Left" Height="23" Margin="45,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="EdadTextBox" HorizontalAlignment="Left" Height="23" Margin="45,253,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="AyudaNombreTextBlock" HorizontalAlignment="Left" Margin="209,80,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.124,-0.114"/>
-        <TextBlock x:Name="AyudaApellidoTextBlock" HorizontalAlignment="Left" Margin="209,175,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.152,1.222"/>
-        <TextBlock x:Name="ErrorEdadtextBlock" HorizontalAlignment="Left" Margin="209,253,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.152,1.222" Text="aaaa"/>
+        <TextBox x:Name="NombreTextBox"  Tag="AyudaNombreTextBlock\Nombre del cliente" HorizontalAlignment="Left" Height="23" Margin="45,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="TextBox_KeyDown"  />
+        <TextBox x:Name="ApellidoTextBox"  Tag="AyudaApellidoTextBlock\Apellido del cliente" HorizontalAlignment="Left" Height="23" Margin="45,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="TextBox_KeyDown" />
+        <TextBox x:Name="EdadTextBox" HorizontalAlignment="Left" Height="23" Margin="45,253,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120" KeyDown="EdadTextBox_KeyDown"/>
+        <TextBlock x:Name="AyudaNombreTextBlock" HorizontalAlignment="Left" Margin="209,80,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.124,-0.114"/>
+        <TextBlock x:Name="AyudaApellidoTextBlock" HorizontalAlignment="Left" Margin="209,168,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.152,1.222"/>
+        <TextBlock x:Name="ErrorEdadtextBlock" HorizontalAlignment="Left" Margin="209,253,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.152,1.222"  />
 
 
 
