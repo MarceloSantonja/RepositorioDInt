@@ -1,0 +1,16 @@
+﻿<Window x:Class="EjemploVista.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EjemploVista"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" MinHeight="200" MinWidth="200">
+    <Border BorderBrush="Coral" BorderThickness="4,4" Margin="10" Padding="10" CornerRadius="10,10,20,30">
+    <StackPanel>
+        <Button Margin="0,0,0,10" HorizontalAlignment="Left" Padding="0,5">botón 1</Button>
+        <Button Margin="0,0,0,10" Padding="0,5" Width="100" Height="40" >botón 2</Button>
+        <Button Padding="0,5" MaxWidth="200" MinWidth="150">botón 3</Button>
+    </StackPanel>
+    </Border>
+</Window>
