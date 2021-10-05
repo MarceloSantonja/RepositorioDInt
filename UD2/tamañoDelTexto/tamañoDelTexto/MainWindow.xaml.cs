@@ -31,7 +31,7 @@ namespace tamañoDelTexto
         {
             RadioButton boton = (RadioButton)sender;
             
-            TextoTextBlock.FontSize = int.Parse(boton.Tag.ToString());
+            TextoTextBlock.FontSize = double.Parse(boton.Tag.ToString());
 
         }
     }

@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Tamaño del texto" Height="450" Width="800" Icon="assets\128.ico">
     <Grid>
-        <TextBlock x:Name="TextoTextBlock" Text="Desarrollo de Interfaces" TextAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="122" Width="762" Foreground="#FF1F3DC3"  />
+        <TextBlock x:Name="TextoTextBlock" Text="Desarrollo de Interfaces" TextAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="122" Width="762" Foreground="#FF1F3DC3"  >
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
         <RadioButton x:Name="PequeñoRadioButton" Content="Pequeño" GroupName="TamañoTexto" HorizontalAlignment="Left" Tag="36" Margin="107,201,0,0" VerticalAlignment="Top"   IsChecked="True" RenderTransformOrigin="0.5,0.5" Checked="Button_Checked" >
             <RadioButton.RenderTransform>
                 <TransformGroup>

@@ -29,14 +29,14 @@ namespace OpacidadImagenes
         {
             Image imagen = (Image)sender;
 
-            imagen.Opacity = 0.5;
+            imagen.Opacity = 1;
         }
 
         private void Image_MouseLeave(object sender, MouseEventArgs e)
         {
             Image imagen = (Image)sender;
 
-            imagen.Opacity = 1;
+            imagen.Opacity = 0.5;
         }
     }
 }
