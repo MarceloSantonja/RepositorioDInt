@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{949AEA49-02FC-4255-A36B-05A1026D8315}</ProjectGuid>
+    <ProjectGuid>{02326FC3-719E-4D4B-A18E-C608F8D32CFB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Mosaico</RootNamespace>
-    <AssemblyName>Mosaico</AssemblyName>
+    <RootNamespace>VisorImagenes</RootNamespace>
+    <AssemblyName>VisorImagenes</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>tetris_computer_game.ico</ApplicationIcon>
+    <ApplicationIcon>128.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -98,10 +98,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\tetris_computer_game.ico" />
+    <Resource Include="images\episodioIV.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="tetris_computer_game.ico" />
+    <Resource Include="assets\128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="128.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

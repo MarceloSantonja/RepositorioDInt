@@ -1,0 +1,64 @@
+﻿<Window x:Class="VisorImagenes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisorImagenes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000" Icon="assets\128.ico">
+    <DockPanel LastChildFill="False">
+
+        <DockPanel Background="LightBlue" DockPanel.Dock="Bottom" >
+            <TextBlock Text="Nº de imágenes:10" HorizontalAlignment="Left" FontSize="30" Margin="5,20,0,20" ></TextBlock>
+            <TextBlock Text="Nº de imágenes:10" HorizontalAlignment="Right"  FontSize="30" Margin="0,20,5,20" ></TextBlock>
+        </DockPanel>
+        <Border CornerRadius="3" BorderThickness="3" BorderBrush="Black"
+                DockPanel.Dock="Right">
+        <DockPanel Background="LightGreen" Margin="10" >
+
+                <StackPanel DockPanel.Dock="top" VerticalAlignment="top">
+                    <Button Content="Añadir imagen" Width="100" Margin="5,5,5,5"></Button>
+                    <Button Content="Eliminar imagen" Width="100" Margin="5,5,5,5"></Button>
+                    <Button Content="Eliminar todas" Width="100" Margin="5,5,5,5"></Button>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+                    <Button Content="Añadir imagen" Width="100" Margin="5,5,5,5"></Button>
+                    <Button Content="Eliminar imagen" Width="100" Margin="5,5,5,5"></Button>
+                    <Button Content="Eliminar todas" Width="100" Margin="5,5,5,5"></Button>
+                </StackPanel>               
+            
+            
+            
+        </DockPanel>
+            </Border>
+        <StackPanel>
+            <TextBlock Text="Visor de imágenes" FontSize="35" HorizontalAlignment="Center" ></TextBlock>
+            <WrapPanel>
+
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+
+
+            </WrapPanel>
+            
+
+        </StackPanel>
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+    </DockPanel>
+</Window>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisorImagenes", "VisorImagenes\VisorImagenes.csproj", "{02326FC3-719E-4D4B-A18E-C608F8D32CFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02326FC3-719E-4D4B-A18E-C608F8D32CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02326FC3-719E-4D4B-A18E-C608F8D32CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02326FC3-719E-4D4B-A18E-C608F8D32CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02326FC3-719E-4D4B-A18E-C608F8D32CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F464D07-BCFD-4E18-B2A1-EE378722FAC1}
+	EndGlobalSection
+EndGlobal

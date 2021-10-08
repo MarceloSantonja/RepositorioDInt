@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mosaico"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Mosaico" Height="660" Width="660" Icon="assets\tetris_computer_game.ico">
     <DockPanel >
         <TextBlock DockPanel.Dock="Top" Height="100" Background="Purple" ></TextBlock>
         <TextBlock DockPanel.Dock="Left" Width="100" Background="Purple" ></TextBlock>

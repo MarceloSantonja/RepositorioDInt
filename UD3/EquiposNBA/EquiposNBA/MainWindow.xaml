@@ -15,7 +15,7 @@
                         <GradientStop Color="#FFDCCB21" Offset="1"/>
                     </LinearGradientBrush>
                 </StackPanel.Background>
-                <TextBlock Text="Los Ángeles Lakers" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="Los Ángeles Lakers" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
                 <WrapPanel HorizontalAlignment="Center">
                     <Image Source="Image\9_lakers.png" Width="150"></Image>
                     <Image Source="Image\14_lakers.png" Width="150"></Image>
@@ -33,7 +33,7 @@
                         <GradientStop Color="#FFEA1E1E" Offset="1"/>
                     </LinearGradientBrush>
                 </StackPanel.Background>
-                <TextBlock Text="Maimi Heat" Foreground="AliceBlue" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="Maimi Heat" Foreground="AliceBlue" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
                 <WrapPanel HorizontalAlignment="Center">
                     <Image Source="Image\9_lakers.png" Width="150"></Image>
                     <Image Source="Image\14_lakers.png" Width="150"></Image>
