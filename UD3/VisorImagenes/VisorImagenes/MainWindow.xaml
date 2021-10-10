@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VisorImagenes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" Icon="assets\128.ico">
+        Title="Visor de imágenes" Height="600" Width="700" MinWidth="700" Icon="assets\128.ico">
     <DockPanel LastChildFill="False">
 
-        <DockPanel Background="LightBlue" DockPanel.Dock="Bottom" >
-            <TextBlock Text="Nº de imágenes:10" HorizontalAlignment="Left" FontSize="30" Margin="5,20,0,20" ></TextBlock>
-            <TextBlock Text="Nº de imágenes:10" HorizontalAlignment="Right"  FontSize="30" Margin="0,20,5,20" ></TextBlock>
+        <DockPanel Background="LightBlue" DockPanel.Dock="Bottom" Margin="10">
+            <TextBlock Text="Nº de imágenes:10" HorizontalAlignment="Left" FontSize="20" Margin="5,20,0,20" ></TextBlock>
+            <TextBlock Text="Diseñado por Marcelo Santonja" HorizontalAlignment="Right"  FontSize="20" Margin="0,20,5,20" ></TextBlock>
         </DockPanel>
         <Border CornerRadius="3" BorderThickness="3" BorderBrush="Black"
-                DockPanel.Dock="Right">
-        <DockPanel Background="LightGreen" Margin="10" >
+                DockPanel.Dock="Right"  Margin="10">
+        <DockPanel Background="LightGreen" >
 
                 <StackPanel DockPanel.Dock="top" VerticalAlignment="top">
                     <Button Content="Añadir imagen" Width="100" Margin="5,5,5,5"></Button>
@@ -22,8 +22,7 @@
                     <Button Content="Eliminar todas" Width="100" Margin="5,5,5,5"></Button>
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
-                    <Button Content="Añadir imagen" Width="100" Margin="5,5,5,5"></Button>
-                    <Button Content="Eliminar imagen" Width="100" Margin="5,5,5,5"></Button>
+                   <Button Content="Rotar" Width="100" Margin="5,5,5,5"></Button>
                     <Button Content="Eliminar todas" Width="100" Margin="5,5,5,5"></Button>
                 </StackPanel>               
             
@@ -32,18 +31,18 @@
         </DockPanel>
             </Border>
         <StackPanel>
-            <TextBlock Text="Visor de imágenes" FontSize="35" HorizontalAlignment="Center" ></TextBlock>
+            <TextBlock Text="Visor de imágenes" FontSize="40" HorizontalAlignment="Center" ></TextBlock>
             <WrapPanel>
 
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
-                <Image Source="C:\Users\alumno\source\repos\UD3\VisorImagenes\VisorImagenes\images\episodioIV.jpg" Width="150" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
+                
 
 
             </WrapPanel>
