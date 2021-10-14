@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Formulario"
         mc:Ignorable="d"
-        Title="Formulario" Height="450" Width="800" Icon="assets\form.ico">
+        Title="Formulario" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="assets\form.ico">
     <DockPanel>
 
         <TextBlock DockPanel.Dock="Top" Text="Formulario" FontSize="40" TextAlignment="Center" FontWeight="Bold"></TextBlock>
@@ -17,15 +17,23 @@
                 <Button Content="Cancelar" Width="100" Margin="5"></Button>
             </StackPanel>
         </DockPanel>
-        <Image Source="images\foto.jpg" Margin="5" DockPanel.Dock="Right"/>
-        <StackPanel>
-            <Border BorderBrush="Black" BorderThickness="3" CornerRadius="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                
+            </Grid.ColumnDefinitions>
+            <Image Source="images\foto.jpg" Margin="5" Grid.Column="1" Stretch="Fill" />
+            <StackPanel Grid.Column="0" Margin="5">
+                <Border BorderBrush="Black" BorderThickness="3" CornerRadius="3"Margin="5">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
                 <Grid Background="CadetBlue">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="40"/>
-                        <!-- si no le pongo un tamaño de 40 la imagen se me sale de la pantalla puede ser un problema con imagenes muy grandes y el escalar no funciona con numero menores que 1 -->
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -42,7 +50,7 @@
                     <Image Grid.Column="2" Grid.Row="1" ToolTip="Número entre 0 y 100" Stretch="none" Source="images\info.png"/>
                     <Image Grid.Column="2" Grid.Row="2" ToolTip="Incluir el código postal" Stretch="none" Source="images\info.png"/>
                 </Grid>
-            </Border>
+                </Border Margin="5">
             <Border BorderBrush="Black" BorderThickness="3" CornerRadius="3">
             <StackPanel Background="Beige" Orientation="Horizontal">
                 <GroupBox Header="Aficiones" Width="200">
@@ -64,8 +72,9 @@
 
                 </StackPanel>
             </Border>
-            
+         </StackPanel>
+        </Grid>
 
-        </StackPanel>
+        
     </DockPanel>
 </Window>

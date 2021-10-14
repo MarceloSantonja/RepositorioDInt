@@ -6,16 +6,18 @@
         xmlns:local="clr-namespace:Estaciones"
         mc:Ignorable="d"
         Title="Estaciones" Height="450" Width="800" Icon="assets\snowman_winter_christmas.ico">
-    <DockPanel  Background="ForestGreen" LastChildFill="False">
+    <DockPanel  Background="ForestGreen" >
         <TextBlock Text="Las 4 estaciones"  DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30" FontFamily="Sitka Display">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFD01D1D" Offset="0"/>
                     <GradientStop Color="#FFFF7B19" Offset="1"/>
                 </LinearGradientBrush>
             </TextBlock.Foreground></TextBlock>
-        <Viewbox StretchDirection="Both" Stretch="Fill">
-        <UniformGrid Width="500" Height="500" >
+        <UniformGrid >
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="auto" Margin="10" >
                     <Image Source="images\invierno.jpg" ></Image>
             </ScrollViewer>
@@ -30,6 +32,6 @@
             </ScrollViewer>
                
         </UniformGrid>
-        </Viewbox>
+     
     </DockPanel>
 </Window>
