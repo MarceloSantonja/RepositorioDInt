@@ -6,58 +6,78 @@
         xmlns:local="clr-namespace:VisorImagenes"
         mc:Ignorable="d"
         Title="Visor de imágenes" Height="600" Width="700" MinWidth="700" MinHeight="600" Icon="assets\128.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type Image}">
+            <Setter  Property="Width" Value="130"></Setter>
+            <Setter Property="Margin" Value="3" />
+
+        </Style>
+        <Style  TargetType="{x:Type TextBlock}" x:Key="Titulo">
+            <Setter Property="FontSize" Value="40"></Setter>
+            <Setter Property="HorizontalAlignment" Value="center"></Setter>
+            <Setter Property="Text" Value="Visor de imágenes"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="borde1">
+            <Setter Property="CornerRadius" Value="3"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style TargetType="{x:Type DockPanel}" x:Key="fondoBotones">
+            <Setter Property="Background" Value="LightGreen"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="textoFooter">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="5,20,5,20"/>
+        </Style>
+        <Style TargetType="{x:Type DockPanel}" x:Key="backgroundFooter" >
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="LightBlue"/>
+
+        </Style>
+        
+    </Window.Resources>
     <DockPanel >
 
-        <DockPanel Background="LightBlue" DockPanel.Dock="Bottom" Margin="10" LastChildFill="False">
-            <TextBlock Text="Nº de imágenes:10" HorizontalAlignment="Left" FontSize="20" Margin="5,20,0,20" ></TextBlock>
-            <TextBlock Text="Diseñado por Marcelo Santonja" DockPanel.Dock="Right"  FontSize="20" Margin="0,20,5,20" ></TextBlock>
+        <DockPanel Style="{StaticResource backgroundFooter}" DockPanel.Dock="Bottom"  LastChildFill="False">
+            <TextBlock Text="Nº de imágenes:10" Style="{StaticResource textoFooter}" ></TextBlock>
+            <TextBlock Text="Diseñado por Marcelo Santonja" DockPanel.Dock="Right" Style="{StaticResource textoFooter}" ></TextBlock>
         </DockPanel>
-        <Border CornerRadius="3" BorderThickness="3" BorderBrush="Black"
-                DockPanel.Dock="Right"  Margin="10">
-            <DockPanel Background="LightGreen" LastChildFill="False" >
+        <Border Style="{StaticResource borde1}" DockPanel.Dock="Right"  >
+            <DockPanel Style="{StaticResource fondoBotones}" LastChildFill="False" >
 
                 <StackPanel DockPanel.Dock="top" >
-                    <Button Content="Añadir imagen" Width="100" Margin="5,5,5,5"></Button>
-                    <Button Content="Eliminar imagen" Width="100" Margin="5,5,5,5"></Button>
-                    <Button Content="Eliminar todas" Width="100" Margin="5,5,5,5"></Button>
+                    <Button Content="Añadir imagen" ></Button>
+                    <Button Content="Eliminar imagen" ></Button>
+                    <Button Content="Eliminar todas" ></Button>
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" >
-                   <Button Content="Rotar" Width="100" Margin="5,5,5,5"></Button>
-                    <Button Content="Eliminar todas" Width="100" Margin="5,5,5,5"></Button>
+                   <Button Content="Rotar" ></Button>
+                    <Button Content="Eliminar todas" ></Button>
                 </StackPanel>               
-            
-            
             
         </DockPanel>
             </Border>
         <StackPanel>
-            <TextBlock Text="Visor de imágenes" FontSize="40" HorizontalAlignment="Center" ></TextBlock>
+            <TextBlock Style="{StaticResource Titulo}" ></TextBlock>
             <WrapPanel>
 
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                <Image Source="images\episodioIV.jpg" Width="130" ></Image>
-                
-
-
+                <Image Source="images\episodioIV.jpg" ></Image>
+                <Image Source="images\episodioIV.jpg" ></Image>
+                <Image Source="images\episodioIV.jpg" ></Image>
+                <Image Source="images\episodioIV.jpg" ></Image>
+                <Image Source="images\episodioIV.jpg" ></Image>
+                <Image Source="images\episodioIV.jpg" ></Image>
+                <Image Source="images\episodioIV.jpg" ></Image>
+                <Image Source="images\episodioIV.jpg" ></Image>
+   
             </WrapPanel>
-            
-
+   
         </StackPanel>
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
+ 
     </DockPanel>
 </Window>

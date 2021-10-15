@@ -13,7 +13,7 @@
             <Setter Property="Margin" Value="10"></Setter>
             <Setter Property="CornerRadius" Value="3"></Setter>
         </Style>
-        <Style TargetType="{x:Type TextBlock}">
+        <Style TargetType="{x:Type TextBlock}" x:Key="Broder2">
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
             <Setter Property="FontSize" Value="30"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
@@ -63,7 +63,7 @@
                 </WrapPanel>
             </StackPanel>
         </Border>
-        <Border>
+        <Border Style="{StaticResource Borde1}">
             <StackPanel Style = "{StaticResource fondoStackPanel2}" >
                 <TextBlock  Text="Maimi Heat" Foreground="AliceBlue" ></TextBlock>
                 <WrapPanel HorizontalAlignment="Center">
