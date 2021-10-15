@@ -6,40 +6,72 @@
         xmlns:local="clr-namespace:EquiposNBA"
         mc:Ignorable="d"
         Title="Equipos NBA" Height="450" Width="800" Icon="assets\128.ico">
-    <StackPanel>
-        <Border BorderBrush="Black" BorderThickness="3"  CornerRadius="3" Margin="10" >
-            <StackPanel  >
-                <StackPanel.Background>
+    <Window.Resources>
+        <Style  TargetType="{x:Type Border}" x:Key="Borde1">
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="CornerRadius" Value="3"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+          
+        </Style>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Width" Value="150"></Setter>
+        </Style>
+        
+        <Style TargetType="{x:Type StackPanel}" x:Key="fondoStackPanel1">
+            <Setter Property="Background">
+                <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF8110CF" Offset="0"/>
                         <GradientStop Color="#FFDCCB21" Offset="1"/>
                     </LinearGradientBrush>
-                </StackPanel.Background>
-                <TextBlock TextWrapping="Wrap" Text="Los Ángeles Lakers" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
-                <WrapPanel HorizontalAlignment="Center">
-                    <Image Source="Image\9_lakers.png" Width="150"></Image>
-                    <Image Source="Image\14_lakers.png" Width="150"></Image>
-                    <Image Source="Image\23_lakers.png" Width="150"></Image>
-                    <Image Source="Image\3_lakers.png" Width="150"></Image>
-                    <Image Source="Image\39_lakers.png" Width="150"></Image>
-                </WrapPanel>
-            </StackPanel>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="3"  CornerRadius="3" Margin="10" >
-            <StackPanel  >
-                <StackPanel.Background>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type StackPanel}" x:Key="fondoStackPanel2">
+            <Setter Property="Background">
+                <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF161417" Offset="0"/>
                         <GradientStop Color="#FFEA1E1E" Offset="1"/>
                     </LinearGradientBrush>
-                </StackPanel.Background>
-                <TextBlock TextWrapping="Wrap" Text="Maimi Heat" Foreground="AliceBlue" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
+    
+    
+    
+    <StackPanel>
+        <Border Style = "{StaticResource Borde1}" >
+            <StackPanel Style="{StaticResource fondoStackPanel1}" >
+                <TextBlock  Text="Los Ángeles Lakers" ></TextBlock>
                 <WrapPanel HorizontalAlignment="Center">
-                    <Image Source="Image\9_lakers.png" Width="150"></Image>
-                    <Image Source="Image\14_lakers.png" Width="150"></Image>
-                    <Image Source="Image\23_lakers.png" Width="150"></Image>
-                    <Image Source="Image\3_lakers.png" Width="150"></Image>
-                    <Image Source="Image\39_lakers.png" Width="150"></Image>
+                    <Image Source="Image\9_lakers.png" ></Image>
+                    <Image Source="Image\14_lakers.png" ></Image>
+                    <Image Source="Image\23_lakers.png" ></Image>
+                    <Image Source="Image\3_lakers.png" ></Image>
+                    <Image Source="Image\39_lakers.png" ></Image>
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+        <Border>
+            <StackPanel Style = "{StaticResource fondoStackPanel2}" >
+                <TextBlock  Text="Maimi Heat" Foreground="AliceBlue" ></TextBlock>
+                <WrapPanel HorizontalAlignment="Center">
+                    <Image Source="Image\9_lakers.png" ></Image>
+                    <Image Source="Image\14_lakers.png" ></Image>
+                    <Image Source="Image\23_lakers.png" ></Image>
+                    <Image Source="Image\3_lakers.png" ></Image>
+                    <Image Source="Image\39_lakers.png" ></Image>
                 </WrapPanel>
             </StackPanel>
         </Border>
