@@ -6,93 +6,109 @@
         xmlns:local="clr-namespace:Calculadora"
         mc:Ignorable="d"
         Title="Calculadora" Height="550" MinHeight="350" MinWidth="250" Width="450" Icon="assets\numbers.ico">
-  
-        <Grid >
-            <Grid.RowDefinitions >
-                <RowDefinition ></RowDefinition>
-                <RowDefinition ></RowDefinition>
-                <RowDefinition ></RowDefinition>
-                <RowDefinition ></RowDefinition>
-                <RowDefinition ></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-            </Grid.RowDefinitions >
-            <Grid.ColumnDefinitions >
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition ></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Border Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="3" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1" Margin="3" >
-                <Viewbox >
-                <TextBlock x:Name="TextoTextBlock" FontStretch="Condensed"  TextAlignment="Right"   ></TextBlock>
-                </Viewbox>
-            </Border>
-        <Button x:Name="Boton1Buton" Grid.Column="0"  Grid.Row="2"  Tag="1"  Margin ="5" Click="Buton_Click"  >
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5"/>
+            <EventSetter Event="Click" Handler="Buton_Click"></EventSetter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="bordeConsola">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="textoConsola">
+            <Setter Property="TextAlignment" Value="Right"/>
+        </Style>
+
+
+    </Window.Resources>
+    <Grid >
+        <Grid.RowDefinitions >
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions >
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="3" Grid.RowSpan="2" Style="{StaticResource bordeConsola}" >
+            <Viewbox >
+                <TextBlock x:Name="TextoTextBlock" Style="{StaticResource textoConsola}"></TextBlock>
+            </Viewbox>
+        </Border>
+        <!-- les he quitado el X:Name a los botones creo que no hace falta-->
+        <Button  Grid.Column="0"  Grid.Row="2"  Tag="1"  >
             <Viewbox>
-            <TextBlock>1</TextBlock>
+                <TextBlock>1</TextBlock>
             </Viewbox>
         </Button>
-       
-            <Button x:Name="Boton2Buton" Grid.Column="1" Grid.Row="2"  Tag="2" Margin ="5"  Click="Buton_Click" >
-                <Viewbox>
+
+        <Button Grid.Column="1" Grid.Row="2"  Tag="2" >
+            <Viewbox>
                 <TextBlock>2</TextBlock>
-                </Viewbox>
-            </Button>
-        
-           
-            <Button x:Name="Boton3Buton" Grid.Column="2" Grid.Row="2"  Tag="3" Margin ="5" Click="Buton_Click" >
-                <Viewbox>
+            </Viewbox>
+        </Button>
+
+
+        <Button  Grid.Column="2" Grid.Row="2"  Tag="3"  >
+            <Viewbox>
                 <TextBlock>3</TextBlock>
-                </Viewbox>
-            </Button>
-           
-           
-            <Button x:Name="Boton4Buton"  Grid.Column="0" Grid.Row="3" Tag="4"  Margin ="5" Click="Buton_Click" >
-                <Viewbox>
+            </Viewbox>
+        </Button>
+
+
+        <Button   Grid.Column="0" Grid.Row="3" Tag="4"  >
+            <Viewbox>
                 <TextBlock>4</TextBlock>
-                </Viewbox>
-            </Button>
-           
-            
-            <Button x:Name="Boton5Buton" Grid.Column="1" Grid.Row="3" Tag="5"  Margin ="5" Click="Buton_Click" >
-                <Viewbox>
-                    <TextBlock>5</TextBlock>
-                </Viewbox>
-            </Button>
-           
-           
-            <Button x:Name="Boton6Buton"  Grid.Column="2" Grid.Row="3"  Tag="6"  Margin ="5" Click="Buton_Click" >
-                <Viewbox>
+            </Viewbox>
+        </Button>
+
+
+        <Button  Grid.Column="1" Grid.Row="3" Tag="5"   >
+            <Viewbox>
+                <TextBlock>5</TextBlock>
+            </Viewbox>
+        </Button>
+
+
+        <Button   Grid.Column="2" Grid.Row="3"  Tag="6"  >
+            <Viewbox>
                 <TextBlock>6</TextBlock>
-                </Viewbox>
-            </Button>
-           
-           
-            <Button x:Name="Boton7Buton"  Grid.Column="0" Grid.Row="4" Tag="7" Margin ="5" Click="Buton_Click" >
-                <Viewbox>
-                    <TextBlock>7</TextBlock>
-                </Viewbox>
-            </Button>
-          
-
-            <Button x:Name="Boton8Buton"  Grid.Column="1" Grid.Row="4" Tag="8" Margin ="5" Click="Buton_Click" >
-                <Viewbox>
-                    <TextBlock>8</TextBlock>
-                </Viewbox>
-            </Button>
+            </Viewbox>
+        </Button>
 
 
-            <Button x:Name="Boton9Buton" Grid.Column="2" Grid.Row="4"  Tag="9" Margin ="5" Click="Buton_Click" >
-                <Viewbox>
-                    <TextBlock>9</TextBlock>
-                </Viewbox>
-            </Button>
+        <Button   Grid.Column="0" Grid.Row="4" Tag="7"  >
+            <Viewbox>
+                <TextBlock>7</TextBlock>
+            </Viewbox>
+        </Button>
 
-                           
 
-            <Button  x:Name="Boton0Buton" Grid.Column="0"    Grid.Row="5"  Grid.ColumnSpan="3"   Content="0"  Tag="0" Click="Buton_Click"  Margin="5"   />
-           
-        </Grid>
+        <Button   Grid.Column="1" Grid.Row="4" Tag="8" >
+            <Viewbox>
+                <TextBlock>8</TextBlock>
+            </Viewbox>
+        </Button>
 
-   
-    
+
+        <Button  Grid.Column="2" Grid.Row="4"  Tag="9"  >
+            <Viewbox>
+                <TextBlock>9</TextBlock>
+            </Viewbox>
+        </Button>
+
+
+
+        <Button   Grid.Column="0"    Grid.Row="5"  Grid.ColumnSpan="3"   Content="0"  Tag="0"    />
+
+    </Grid>
+
+
+
 </Window>

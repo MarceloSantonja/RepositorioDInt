@@ -8,8 +8,8 @@
         Title="Visor de imágenes" Height="600" Width="700" MinWidth="700" MinHeight="600" Icon="assets\128.ico">
     <Window.Resources>
         <Style TargetType="{x:Type Image}">
-            <Setter  Property="Width" Value="130"></Setter>
-            <Setter Property="Margin" Value="3" />
+            <Setter Property="Width" Value="130"></Setter>
+            <Setter Property="Margin" Value="3"/>
 
         </Style>
         <Style  TargetType="{x:Type TextBlock}" x:Key="Titulo">
@@ -39,7 +39,7 @@
             <Setter Property="Background" Value="LightBlue"/>
 
         </Style>
-        
+
     </Window.Resources>
     <DockPanel >
 
@@ -56,12 +56,12 @@
                     <Button Content="Eliminar todas" ></Button>
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" >
-                   <Button Content="Rotar" ></Button>
+                    <Button Content="Rotar" ></Button>
                     <Button Content="Eliminar todas" ></Button>
-                </StackPanel>               
-            
-        </DockPanel>
-            </Border>
+                </StackPanel>
+
+            </DockPanel>
+        </Border>
         <StackPanel>
             <TextBlock Style="{StaticResource Titulo}" ></TextBlock>
             <WrapPanel>
@@ -74,10 +74,10 @@
                 <Image Source="images\episodioIV.jpg" ></Image>
                 <Image Source="images\episodioIV.jpg" ></Image>
                 <Image Source="images\episodioIV.jpg" ></Image>
-   
+
             </WrapPanel>
-   
+
         </StackPanel>
- 
+
     </DockPanel>
 </Window>
