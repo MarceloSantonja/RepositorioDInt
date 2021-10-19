@@ -47,7 +47,6 @@ namespace CalculadoraDinamica
                         Content = vista,
                         Tag = valorNumero.ToString()
                     };
-                    boton.Click += Buton_Click;
                     this.CalculadorGrid.Children.Add(boton);
                     Grid.SetRow(boton, (i + 2));
                     Grid.SetColumn(boton, x);

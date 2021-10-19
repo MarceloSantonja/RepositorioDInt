@@ -9,6 +9,7 @@
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="5"/>
+            <EventSetter Event="Click" Handler="Buton_Click"/>
         </Style>
         <Style TargetType="{x:Type Border}" x:Key="bordeConsola">
             <Setter Property="BorderBrush" Value="Black"/>
