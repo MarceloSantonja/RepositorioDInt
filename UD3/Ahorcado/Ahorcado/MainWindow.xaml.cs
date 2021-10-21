@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,43 @@ namespace Ahorcado
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<String> palabras = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
+            
+            palabras.Add("telegrafo");
+            palabras.Add("futbol");
+            palabras.Add("caligrafia");
+            palabras.Add("atardecer");
+            palabras.Add("paisaje");
+
+
+
+
+
+
+
+
+        }
+
+        private void NuevaPartidaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Random r = new Random();
+            int posicionAleatoria =r.Next(0, palabras.Count + 1);
+
+            String palabra = palabras[posicionAleatoria];
+
+            char[] letras = palabra.ToCharArray();
+
+
+            TextBlock letra = new TextBlock
+            {
+                FontSize = 32,
+                
+
+            };
+
         }
     }
 }

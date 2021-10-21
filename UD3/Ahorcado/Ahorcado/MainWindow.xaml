@@ -5,18 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ahorcado"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Ahoracado" Height="450" Width="800"  Icon=".\assets\32.ico">
     <Window.Resources>
-        <Style TargetType="{x:Type TextBlock}"></Style>
-        
-        
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect/>
+                </Setter.Value>
+            </Setter>
+        </Style >
+        <Style TargetType="{x:Type DockPanel}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFD82424" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Source" Value=".\images\0.jpg"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Stretch" Value="Fill"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
     </Window.Resources>
     <DockPanel>
-        <TextBlock Text="Ahorcado" DockPanel.Dock="Top"></TextBlock>
-        <WrapPanel></WrapPanel>
-        
-        
-        
-        
+        <TextBlock Text="Ahorcado" DockPanel.Dock="Top">
+        </TextBlock>
+
+
+        <Grid DockPanel.Dock="Left" Width="200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Image  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  />
+            <Button x:Name="NuevaPartidaButton" Content="Nueva Partida" Grid.Row="1" Grid.Column="0" Margin="5,5,5,0" Click="NuevaPartidaButton_Click"  />
+            <Button x:Name="RendirseButton" Content="Rendirse" Grid.Row="1" Grid.Column="1" Height="20" Margin="5,5,5,0" VerticalAlignment="Top" />
+        </Grid>
+
+        <Grid x:Name="EnunciadoYTeclado">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+
+        </Grid>
+
+
+
+
     </DockPanel>
 </Window>
