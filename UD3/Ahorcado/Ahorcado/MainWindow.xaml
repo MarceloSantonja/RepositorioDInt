@@ -17,14 +17,7 @@
             </Setter>
         </Style >
         <Style TargetType="{x:Type DockPanel}">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFD82424" Offset="0"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
+
         </Style>
         <Style TargetType="{x:Type Image}">
             <Setter Property="Source" Value=".\images\0.jpg"/>
@@ -34,11 +27,15 @@
         <Style TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="5"/>
         </Style>
+        <Style TargetType="{x:Type ScrollViewer}">
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        </Style>
     </Window.Resources>
     <DockPanel>
-        <TextBlock Text="Ahorcado" DockPanel.Dock="Top">
+        <TextBlock  Text="Ahorcado" DockPanel.Dock="Top">
         </TextBlock>
-
+       
 
         <Grid DockPanel.Dock="Left" Width="200">
             <Grid.ColumnDefinitions>
@@ -59,7 +56,29 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            <ScrollViewer x:Name="PalabraOcultaScrollViewer">
+                <StackPanel x:Name="PanelPalabra" Orientation="Horizontal">
+                    
+                </StackPanel>
+               
+            </ScrollViewer>
+            <Grid x:Name="TecladoGrid" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
+            </Grid>
 
 
         </Grid>
