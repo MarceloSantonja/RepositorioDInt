@@ -5,39 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ahorcado"
         mc:Ignorable="d"
-        Title="Ahoracado" Height="450" Width="800"  Icon=".\assets\32.ico">
+        Title="Ahoracado" Height="450" Width="800"  Icon=".\assets\32.ico" KeyDown="Window_KeyDown" MinHeight="450" MinWidth="700" MaxHeight="800" MaxWidth="1200">
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="40"/>
+            
+        </Style >
+        <Style TargetType="{x:Type TextBlock}" x:Key="LetrasOcultas">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="60"/>
+            <Setter Property="Visibility" Value="Hidden" />
+        </Style >
+        <Style TargetType="{x:Type TextBlock}" x:Key="Titulo" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="60"/>
+
+            <Setter Property="Text" Value="Ahorcado"/> 
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect/>
                 </Setter.Value>
             </Setter>
         </Style >
-        <Style TargetType="{x:Type DockPanel}">
+        <Style TargetType="{x:Type Border}" x:Key="BordeLetra" >
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="VerticalAlignment" Value="center"/>
+          
+            <Setter Property="Margin"  Value="10"/>
+            <Setter Property="BorderThickness" Value="0,0,0,5"/>
+            <Setter Property="BorderBrush" Value="Black"/>
 
         </Style>
+ 
         <Style TargetType="{x:Type Image}">
             <Setter Property="Source" Value=".\images\0.jpg"/>
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="Stretch" Value="Uniform"/>
         </Style>
         <Style TargetType="{x:Type Button}">
+            <EventSetter Event="Click" Handler="Letra_Click"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="IsEnabled" Value="false"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="NuevaPartidaStyle">
+            <EventSetter Event="Click" Handler="NuevaPartidaButton_Click"/>
+            <Setter Property="Content" Value="Nueva Partida"/>
+            <Setter Property="IsDefault" Value="True"/>
+            <Setter Property="Height" Value="20" />
             <Setter Property="Margin" Value="5"/>
         </Style>
+        <Style TargetType="{x:Type Button}" x:Key="RendirseStyle"  >
+            <EventSetter Event="Click" Handler="RendirseButton_Click"/>
+            <Setter Property="Content" Value="Rendirse"/>
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="IsEnabled" Value="false"/>
+            <Setter Property="IsCancel" Value="True"/>
+        </Style>
+
+
         <Style TargetType="{x:Type ScrollViewer}">
             <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
             <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+          
         </Style>
+
     </Window.Resources>
     <DockPanel>
-        <TextBlock  Text="Ahorcado" DockPanel.Dock="Top">
+        <TextBlock   Style="{StaticResource Titulo}" DockPanel.Dock="Top">
         </TextBlock>
-       
 
-        <Grid DockPanel.Dock="Left" Width="200">
+        <Grid DockPanel.Dock="Left"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -46,41 +86,23 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Image  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  />
-            <Button x:Name="NuevaPartidaButton" Content="Nueva Partida" Grid.Row="1" Grid.Column="0" Margin="5,5,5,0" Click="NuevaPartidaButton_Click"  />
-            <Button x:Name="RendirseButton" Content="Rendirse" Grid.Row="1" Grid.Column="1" Height="20" Margin="5,5,5,0" VerticalAlignment="Top" />
+            <Image x:Name="AhoracadoImage"  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  />
+            <Button  x:Name="NuevaPartidaButton"  Grid.Row="1" Grid.Column="0" Style="{StaticResource NuevaPartidaStyle}" />
+            <Button x:Name="RendirseButton"  Grid.Row="1" Grid.Column="1" Style="{StaticResource RendirseStyle}" />
         </Grid>
-
-        <Grid x:Name="EnunciadoYTeclado">
+        
+        <Grid  >
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <ScrollViewer x:Name="PalabraOcultaScrollViewer">
+            <ScrollViewer >
                 <StackPanel x:Name="PanelPalabra" Orientation="Horizontal">
-                    
-                </StackPanel>
-               
-            </ScrollViewer>
-            <Grid x:Name="TecladoGrid" Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+            </StackPanel>
 
-            </Grid>
-
-
+            </ScrollViewer >
+            <UniformGrid Rows="3" Columns="9" x:Name="TecladoUniformGrid" Grid.Row="1">
+            </UniformGrid>
         </Grid>
 
 
