@@ -117,17 +117,17 @@ namespace Ahorcado
 
         private void RendirseButton_Click(object sender, RoutedEventArgs e)
         {
-            
 
-                fallos = 10;
-                IList lista = PanelPalabra.Children;
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    Border b = lista[i] as Border;
-                    b.BorderThickness = new Thickness(0);
-                    (b.Child as TextBlock).Visibility = Visibility.Visible;
 
-                }
+            fallos = 10;
+            IList lista = PanelPalabra.Children;
+            for (int i = 0; i < lista.Count; i++)
+            {
+                Border b = lista[i] as Border;
+                b.BorderThickness = new Thickness(0);
+                (b.Child as TextBlock).Visibility = Visibility.Visible;
+
+            }
             AhoracadoImage.Source = new BitmapImage(new Uri(@".\images\" + fallos + ".jpg", UriKind.Relative));
             MensajeFinal();
 
@@ -135,7 +135,16 @@ namespace Ahorcado
         private void MensajeFinal()
         {
             CambiaTeclas(false);
-            MessageBox.Show(fallos < 10 ? "GANASTE" : "PERDISTE");
+            if (fallos < 10 && letrasOcultas == 0)
+            {
+                MessageBox.Show("GANASTE", "Partida Finalizada", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("PERDISTE", "Partida Finalada", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+            
             RendirseButton.IsEnabled = false;
         }
         private void Letra_Click(object sender, RoutedEventArgs e)
@@ -165,13 +174,12 @@ namespace Ahorcado
             if (!contieneLetra)
             {
                 fallos++;
-                AhoracadoImage.Source= new BitmapImage(new Uri(@".\images\" + fallos + ".jpg",UriKind.Relative));
+                AhoracadoImage.Source = new BitmapImage(new Uri(@".\images\" + fallos + ".jpg", UriKind.Relative));
             }
-            if (letrasOcultas == 0 || fallos ==10 )
+            if (letrasOcultas == 0 || fallos == 10)
             {
                 MensajeFinal();
             }
-
 
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -180,7 +188,10 @@ namespace Ahorcado
             for (int i = 0; i < botones.Count; i++)
             {
                 Button posibleBoton = botones[i] as Button;
-                if (posibleBoton.Tag.ToString() == e.Key.ToString() && posibleBoton.IsEnabled)
+                string ñ = "Oem3";
+                string letraTeclado = ñ == e.Key.ToString() ? "Ñ" : e.Key.ToString();
+
+                if (posibleBoton.Tag.ToString() == letraTeclado && posibleBoton.IsEnabled)
                 {
                     BuscaLetra(posibleBoton);
                     i = botones.Count;
