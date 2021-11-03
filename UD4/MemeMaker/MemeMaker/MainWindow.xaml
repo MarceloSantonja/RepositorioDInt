@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemeMaker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MemeMaker" Height="800" Width="800" Icon=".\assets\happy.ico">
     <Window.Resources>
+        <local:BordeConverter x:Key="conversor"></local:BordeConverter>
         <Style TargetType="TextBlock"
                x:Key="etiquetaCampo">
             <Setter Property="Margin"
@@ -116,6 +117,7 @@
             </Grid>
             <Border Background="#FFF3D2D2"
                     BorderBrush="Black" Width="{Binding ElementName=anchoSlider, Path=Value}" Height="{Binding ElementName=altoSlider, Path=Value}" 
+                    BorderThickness="{Binding ElementName=bordeCheckBox, Path=IsChecked, Converter={StaticResource conversor} }"
                     Margin="10">
                 <Grid>
                     <Image Stretch="Fill" Source="{Binding ElementName=imagenTextBox, Path=Text}" />
