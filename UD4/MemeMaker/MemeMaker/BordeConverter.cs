@@ -20,7 +20,7 @@ namespace MemeMaker
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return !((Boolean)value) ? 0 : 3;
+            return ((Boolean)value) ? 0 : 3;
         }
     }
 }
