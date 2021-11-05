@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:A2Superheroe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Superhéroe" Height="450" Width="800" Icon=".\assets\shield.ico">
+    <DockPanel x:Name="ContenedorDockPanel">
+        <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+            <TextBlock DockPanel.Dock="Left" Text="{Binding  Path=Nombre}"/>
+            </DockPanel>
+
+        </DockPanel>
 </Window>
