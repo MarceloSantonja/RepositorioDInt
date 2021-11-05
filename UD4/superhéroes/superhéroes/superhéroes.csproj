@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Superheroe.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\arrow.png" />
+    <Resource Include="image\avengers.png" />
+    <Resource Include="image\xmen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
