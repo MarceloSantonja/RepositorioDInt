@@ -1,16 +1,15 @@
-﻿<Window x:Class="superhéroes.MainWindow"
+﻿<Window x:Class="A2Superheroe.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:superhéroes"
+        xmlns:local="clr-namespace:A2Superheroe"
         mc:Ignorable="d"
-        Title="Superheroes" Height="450" Width="800" Icon=".\assets\128.ico">
-    <DockPanel>
+        Title="Superhéroe" Height="450" Width="800" Icon=".\assets\shield.ico">
+    <DockPanel x:Name="ContenedorDockPanel">
         <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-            <TextBlock DockPanel.Dock="Left" Text=""/>
-            <
+            <TextBlock DockPanel.Dock="Left" Text="{Binding  Path=Nombre}"/>
+            </DockPanel>
+
         </DockPanel>
-        
-    </DockPanel>
 </Window>
