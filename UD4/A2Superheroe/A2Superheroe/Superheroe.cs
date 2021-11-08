@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace A2Superheroe
 {
-    class Superheroe
+    class Superheroe : INotifyPropertyChanged
     {
         public string Nombre { get; set; }
         public string Imagen { get; set; }
@@ -26,6 +27,9 @@ namespace A2Superheroe
             Xmen = xmen;
             Heroe = heroe;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+ 
 
         public static List<Superheroe> GetSamples()
         {

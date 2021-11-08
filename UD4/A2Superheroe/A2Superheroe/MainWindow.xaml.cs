@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,12 +21,38 @@ namespace A2Superheroe
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Superheroe> superheroes = Superheroe.GetSamples();
+        List<Superheroe> heroes = Superheroe.GetSamples();
+        int posicion = 0;
         public MainWindow()
         {
             InitializeComponent();
-            ContenedorDockPanel.DataContext = superheroes[0];
-            
+            ContenedorDockPanel.DataContext = heroes[posicion];
+            CantidadheroeTextBlock.Text = heroes.Count.ToString();
+          
         }
+
+        private void AtrasImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (posicion > 0)
+            {
+                posicion--;
+                HeroeSelectorTextBlock.Text = (posicion+1).ToString();
+                ContenedorDockPanel.DataContext = heroes[posicion];
+            }
+
+
+        }
+
+        private void AdelanteImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (posicion < heroes.Count - 1)
+            {
+                posicion++;
+                HeroeSelectorTextBlock.Text = (posicion + 1).ToString();
+                ContenedorDockPanel.DataContext = heroes[posicion];
+            }
+        }
+
+
     }
 }
