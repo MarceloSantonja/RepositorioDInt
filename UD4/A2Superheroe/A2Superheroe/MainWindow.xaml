@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:A2Superheroe"
         mc:Ignorable="d"
-        Title="Superhéroe" Height="1000" Width="1000" Icon=".\assets\shield.ico">
+        Title="Superhéroe" Height="700" Width="1000" MinHeight="500" MinWidth="700" Icon=".\assets\shield.ico">
     <Window.Resources>
         <local:VillanoConverter x:Key="fondoConversor"></local:VillanoConverter>
         <local:VisibilidadConverter x:Key="iconoConversor"></local:VisibilidadConverter>
@@ -21,23 +21,23 @@
     </Window.Resources>
 
 
-    <DockPanel x:Name="ContenedorDockPanel" Background="{Binding Path=Heroe,Converter={StaticResource fondoConversor} }"  >
+    <DockPanel x:Name="ContenedorDockPanel" Background="{Binding Path=SuperheroeActual.Heroe,Converter={StaticResource fondoConversor} }"  >
         <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-            <TextBlock DockPanel.Dock="Left" Foreground="White" FontSize="40" Text="{Binding Path=Nombre}" Margin="5">
+            <TextBlock DockPanel.Dock="Left" Foreground="White" FontSize="40" Text="{Binding Path=SuperheroeActual.Nombre}" Margin="5">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
                 </TextBlock.Effect>
             </TextBlock>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
-                <Image x:Name="AvengersImage" Source=".\image\avengers.png" Height="40" Margin="5" Visibility="{Binding Path=Vengador , Converter={StaticResource iconoConversor} }"></Image>
-                <Image Source=".\image\xmen.png" Height="40" Margin="5" Visibility="{Binding Path=Xmen , Converter={StaticResource iconoConversor} }"></Image>
+                <Image x:Name="AvengersImage" Source=".\image\avengers.png" Height="40" Margin="5" Visibility="{Binding Path=SuperheroeActual.Vengador , Converter={StaticResource iconoConversor} }"></Image>
+                <Image Source=".\image\xmen.png" Height="40" Margin="5" Visibility="{Binding Path=SuperheroeActual.Xmen , Converter={StaticResource iconoConversor} }"></Image>
             </StackPanel>
         </DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" >
             <Image x:Name="AtrasImage" Source=".\image\arrow.png" Height="20" Margin="5" MouseLeftButtonUp="AtrasImage_MouseLeftButtonUp" ></Image>
-            <TextBlock x:Name="HeroeSelectorTextBlock" Text="1"></TextBlock>
+            <TextBlock x:Name="HeroeSelectorTextBlock" Text="{Binding Path=PosicionActual}"></TextBlock>
             <TextBlock  Text="/"></TextBlock>
-            <TextBlock x:Name="CantidadheroeTextBlock" ></TextBlock>
+            <TextBlock x:Name="CantidadheroeTextBlock" Text="{Binding Path=TotalHeroes}" ></TextBlock>
             <Image x:Name="AdelanteImage" Source=".\image\arrow.png"  Height="20" Margin="5" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="AdelanteImage_MouseLeftButtonUp" >
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -49,6 +49,6 @@
                 </Image.RenderTransform>
             </Image>
         </StackPanel>
-        <Image x:Name="HeroeImage" Stretch="UniformToFill" Source="{Binding Path=Imagen}" ></Image>
+        <Image x:Name="HeroeImage" Stretch="UniformToFill" Source="{Binding Path=SuperheroeActual.Imagen}" ></Image>
     </DockPanel>
 </Window>

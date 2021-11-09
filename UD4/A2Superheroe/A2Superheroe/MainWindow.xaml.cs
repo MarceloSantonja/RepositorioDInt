@@ -21,36 +21,25 @@ namespace A2Superheroe
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Superheroe> heroes = Superheroe.GetSamples();
-        int posicion = 0;
+        MainWindowVM vm = new MainWindowVM();
+
         public MainWindow()
         {
             InitializeComponent();
-            ContenedorDockPanel.DataContext = heroes[posicion];
-            CantidadheroeTextBlock.Text = heroes.Count.ToString();
+            this.DataContext = vm;
+
           
         }
 
         private void AtrasImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (posicion > 0)
-            {
-                posicion--;
-                HeroeSelectorTextBlock.Text = (posicion+1).ToString();
-                ContenedorDockPanel.DataContext = heroes[posicion];
-            }
-
+            vm.Retroceder();
 
         }
 
         private void AdelanteImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (posicion < heroes.Count - 1)
-            {
-                posicion++;
-                HeroeSelectorTextBlock.Text = (posicion + 1).ToString();
-                ContenedorDockPanel.DataContext = heroes[posicion];
-            }
+            vm.Avanzar();
         }
 
 
