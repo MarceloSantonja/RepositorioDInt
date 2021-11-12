@@ -7,12 +7,32 @@
         mc:Ignorable="d"
         Title="Superhéroe" Height="700" Width="1000" MinHeight="500" MinWidth="700" Icon=".\assets\shield.ico">
     <Window.Resources>
-      
-        <Style TargetType="TextBlock">
+
+        <Style TargetType="TextBlock" >
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
-        <Style TargetType="Image">
+        <Style TargetType="TextBlock" x:Key="TextoNombreHeroe" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="40"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="80" Duration="0:0:3"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="40" Duration="0:0:3"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Image"   >
             <Setter Property="Margin" Value="5"/>
         </Style>
         <Style TargetType="Image" x:Key="ImagenHeroe">
@@ -69,7 +89,7 @@
 
     <DockPanel x:Name="ContenedorDockPanel"  Style="{StaticResource ColorVentana}"  >
         <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-            <TextBlock DockPanel.Dock="Left" Foreground="White" FontSize="40" Text="{Binding Path=SuperheroeActual.Nombre}" Margin="5">
+            <TextBlock DockPanel.Dock="Left" Foreground="White" Style="{StaticResource TextoNombreHeroe}" Text="{Binding Path=SuperheroeActual.Nombre}" Margin="5">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
                 </TextBlock.Effect>

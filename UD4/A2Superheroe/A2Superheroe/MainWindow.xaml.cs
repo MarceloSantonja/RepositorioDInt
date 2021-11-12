@@ -27,6 +27,7 @@ namespace A2Superheroe
         {
             InitializeComponent();
             this.DataContext = vm;
+          
 
           
         }
