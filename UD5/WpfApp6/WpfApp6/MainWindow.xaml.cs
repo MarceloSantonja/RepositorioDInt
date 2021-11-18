@@ -13,20 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Comida
+namespace WpfApp6
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-
         private MainWindowVM vm = new MainWindowVM();
-
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = vm;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            vm.AñadirProvincia();
         }
     }
 }

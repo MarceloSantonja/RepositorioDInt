@@ -6,7 +6,37 @@
         xmlns:local="clr-namespace:Comida"
         mc:Ignorable="d"
         Title="Comida" Height="450" Width="800">
-    <Grid>
+    <Grid Background="DeepSkyBlue">
+
+        <Border BorderThickness="2" BorderBrush="Black" Margin="10" Background="White">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Background="LightGray" Width="200" Margin="10">
+                    <TextBlock Text="Nombre del plato"></TextBlock>
+                    <TextBox  Margin="5,0,5,5"></TextBox>
+                    <TextBlock Text="Nombre del plato"></TextBlock>
+                    <TextBox Margin="5,0,5,5"></TextBox>
+                    <TextBlock Text="Nombre del plato"></TextBlock>
+                    <ComboBox Margin="5,0,5,5"></ComboBox>
+                    <GroupBox Header="Alérgenos" BorderBrush="Black">
+                        <UniformGrid Columns="2" Rows="2">
+                            <CheckBox Content="Leche"></CheckBox>
+                            <CheckBox Content="Soja"></CheckBox>
+                            <CheckBox Content="Gluten"></CheckBox>
+                            <CheckBox Content="Sulfitos"></CheckBox>
+                        </UniformGrid>
+                    </GroupBox>
+
+                    <Button Content="Limpiar selección" Background="DeepSkyBlue" HorizontalAlignment="Left" Margin="5" />
+
+                </StackPanel>
+                <ListBox>
+                <WrapPanel ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    
+                </WrapPanel>
+                </ListBox>
+            </DockPanel>
+            
+        </Border>
         
     </Grid>
 </Window>
