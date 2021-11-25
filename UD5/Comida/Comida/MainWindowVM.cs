@@ -11,9 +11,25 @@ namespace Comida
     class MainWindowVM : INotifyPropertyChanged
     {
 
+        
+       
+        private ObservableCollection<Plato> platos;
+        public ObservableCollection<Plato> Platos
+        {
+            get { return platos; }
+            set {
+                platos = value;
+                NotifyPropertyChanged("Platos");
+            }
+        }
 
-        private ObservableCollection<Plato> platos = new ObservableCollection<Plato>();
 
+        public MainWindowVM()
+        {
+            
+            Platos = Plato.GetSamples(@"D:\2DAM\DINT javi\tema5\Imagenes");
+            
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
