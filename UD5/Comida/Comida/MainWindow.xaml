@@ -32,7 +32,7 @@
                     <Button Content="Limpiar selección" Background="DeepSkyBlue" HorizontalAlignment="Left" Margin="5" />
 
                 </StackPanel>
-                <ListBox ItemsSource = "{ Binding Path=Platos}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
+                <ListBox ItemsSource = "{ Binding Path=Platos}" SelectedItem="{}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ></WrapPanel>
@@ -41,15 +41,17 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <DockPanel Width="200" Height="200">
+                                <Viewbox>
                                 <TextBlock DockPanel.Dock="Top" Text="{Binding Path=Nombre }"></TextBlock>
+                                </Viewbox>
                                 <DockPanel DockPanel.Dock="Bottom" LastChildFill="False" >
                                     <Image></Image>
-                                    <Image Source="{Binding Path= Gluten }"></Image>
+                                    <Image ></Image>
                                     <Image></Image>
                                     <Image></Image>
                                     <Image></Image>
                                 </DockPanel>
-                                <Image  Source="{Binding Path= Imagen }"  Stretch="Fill"></Image>
+                                <Image  Source="{Binding Path= Imagen}"  Stretch="UniformToFill"></Image>
     
                             </DockPanel>
                         </DataTemplate>
