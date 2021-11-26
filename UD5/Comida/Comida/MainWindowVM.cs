@@ -27,7 +27,7 @@ namespace Comida
         public MainWindowVM()
         {
             
-            Platos = Plato.GetSamples(@"D:\2DAM\DINT javi\tema5\Imagenes");
+            Platos = Plato.GetSamples(@"E:\2DAM\DINTJavi\tema5\Imagenes");
             
         }
 

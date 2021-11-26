@@ -7,14 +7,7 @@
         mc:Ignorable="d"
         Title="Comida" Height="450" Width="800">
     <Window.Resources>
-        <DataTemplate x:Key="plantillaPlato">
-
-
-
-        </DataTemplate>
-
-
-
+        
     </Window.Resources>
     <Grid Background="DeepSkyBlue">
 
@@ -47,12 +40,16 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <DockPanel>
+                            <DockPanel Width="200" Height="200">
                                 <TextBlock DockPanel.Dock="Top" Text="{Binding Path=Nombre }"></TextBlock>
                                 <DockPanel DockPanel.Dock="Bottom" LastChildFill="False" >
                                     <Image></Image>
+                                    <Image Source="{Binding Path= Gluten }"></Image>
+                                    <Image></Image>
+                                    <Image></Image>
+                                    <Image></Image>
                                 </DockPanel>
-                                <Image  Source="{Binding Path= Imagen }" Width="200"></Image>
+                                <Image  Source="{Binding Path= Imagen }"  Stretch="Fill"></Image>
     
                             </DockPanel>
                         </DataTemplate>
