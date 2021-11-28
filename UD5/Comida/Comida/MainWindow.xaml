@@ -5,9 +5,95 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Comida"
         mc:Ignorable="d"
-        Title="Comida" Height="450" Width="800">
+        Title="Comida" Icon="iconos\launch.ico" Width="950" Height="700" MinWidth="650" MinHeight="500">
     <Window.Resources>
+        <Style x:Key="Bandera" TargetType="Image">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding  Path=Tipo, UpdateSourceTrigger= PropertyChanged}"
+                             Value="Americana">
+                    <Setter Property="Source"
+                            Value="iconos\united_states.png" />
+                    <Setter Property="ToolTip"
+                            Value="Comida Americana" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  Path=Tipo, UpdateSourceTrigger= PropertyChanged}"
+                             Value="China">
+                    <Setter Property="Source"
+                            Value="iconos\china.png" />
+                    <Setter Property="ToolTip"
+                            Value="Comida China" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  Path=Tipo, UpdateSourceTrigger= PropertyChanged}"
+                             Value="Mexicana">
+                    <Setter Property="Source"
+                            Value="iconos\mexico.png" />
+                    <Setter Property="ToolTip"
+                            Value="Comida Mexicana" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="IconoGluten" TargetType="Image">
+            <Setter Property="Source" Value="iconos\gluten.png" />
+           <Style.Triggers>
+                <DataTrigger Binding="{Binding  Path=Gluten, UpdateSourceTrigger= PropertyChanged}" Value="True">
+                    <Setter Property="Visibility"
+                            Value="Visible" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  Path=Gluten, UpdateSourceTrigger= PropertyChanged}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="IconoLeche" TargetType="Image">
+            <Setter Property="Source"
+                    Value="iconos\milk.png" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding  Path=Leche, UpdateSourceTrigger= PropertyChanged}" Value="True">
+                    <Setter Property="Visibility"
+                            Value="Visible" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  Path=Leche, UpdateSourceTrigger= PropertyChanged}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="iconoSulfitos" TargetType="Image">
+            <Setter Property="Source"
+                    Value="iconos\sulfide.png" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding  Path=Sulfitos, UpdateSourceTrigger= PropertyChanged}" Value="True">
+                    <Setter Property="Visibility"
+                            Value="Visible" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  Path=Sulfitos, UpdateSourceTrigger= PropertyChanged}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="iconoSoja" TargetType="Image">
+            <Setter Property="Source"
+                    Value="iconos\soybean.png" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding  Path=Soja, UpdateSourceTrigger= PropertyChanged}" Value="True">
+                    <Setter Property="Visibility"
+                            Value="Visible" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  Path=Soja, UpdateSourceTrigger= PropertyChanged}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         
+
     </Window.Resources>
     <Grid Background="DeepSkyBlue">
 
@@ -32,7 +118,7 @@
                     <Button Content="Limpiar selección" Background="DeepSkyBlue" HorizontalAlignment="Left" Margin="5" />
 
                 </StackPanel>
-                <ListBox ItemsSource = "{ Binding Path=Platos}" SelectedItem="{}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListBox ItemsSource = "{ Binding Path=Platos}" SelectedItem="{Binding Path=PlatoSelecionado}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ></WrapPanel>
@@ -40,20 +126,27 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <DockPanel Width="200" Height="200">
-                                <Viewbox>
-                                <TextBlock DockPanel.Dock="Top" Text="{Binding Path=Nombre }"></TextBlock>
-                                </Viewbox>
-                                <DockPanel DockPanel.Dock="Bottom" LastChildFill="False" >
-                                    <Image></Image>
-                                    <Image ></Image>
-                                    <Image></Image>
-                                    <Image></Image>
-                                    <Image></Image>
+                            <ListBox  BorderBrush="Black" BorderThickness="2" Padding="5" Margin="10">
+                                <ListBox.Effect>
+                                    <DropShadowEffect/>
+                                </ListBox.Effect>
+                                <DockPanel Width="230" Height="270" >
+                                    <Viewbox DockPanel.Dock="Top" Height="50" >
+                                        <TextBlock  Text="{Binding Path=Nombre}"></TextBlock>
+                                    </Viewbox>
+                                    <DockPanel DockPanel.Dock="Bottom" LastChildFill="False" Height="30" >
+                                        <Image Style="{StaticResource Bandera}" ></Image>
+                                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                                            <Image Style="{StaticResource IconoGluten}"></Image>
+                                            <Image Style="{StaticResource IconoLeche}"></Image>
+                                            <Image Style="{StaticResource iconoSulfitos}"></Image>
+                                            <Image Style="{StaticResource iconoSoja}"></Image>
+                                        </StackPanel>
+                                    </DockPanel>
+                                    <Image  Source="{Binding Path= Imagen}"  Stretch="UniformToFill" Margin="10"></Image>
+
                                 </DockPanel>
-                                <Image  Source="{Binding Path= Imagen}"  Stretch="UniformToFill"></Image>
-    
-                            </DockPanel>
+                            </ListBox>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>launch.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -97,7 +100,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\" />
+    <Resource Include="iconos\china.png" />
+    <Resource Include="iconos\mexico.png" />
+    <Resource Include="iconos\united_states.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iconos\gluten.png" />
+    <Resource Include="iconos\milk.png" />
+    <Resource Include="iconos\soybean.png" />
+    <Resource Include="iconos\sulfide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iconos\launch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="launch.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

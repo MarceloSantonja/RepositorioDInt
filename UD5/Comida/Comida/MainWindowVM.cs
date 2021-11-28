@@ -10,9 +10,9 @@ namespace Comida
 {
     class MainWindowVM : INotifyPropertyChanged
     {
-        private int platoSelecionado;
+        private Plato platoSelecionado;
 
-        public int PlatoSelecionado
+        public Plato PlatoSelecionado
         {
             get { return platoSelecionado; }
             set { 
@@ -36,10 +36,6 @@ namespace Comida
         }
 
 
-
-
-
-
         private ObservableCollection<Plato> platos;
         public ObservableCollection<Plato> Platos
         {
@@ -54,9 +50,8 @@ namespace Comida
         public MainWindowVM()
         {
             
-            Platos = Plato.GetSamples(@"D:\2DAM\DINTJavi\tema5\Imagenes");
-           
-            
+            Platos = Plato.GetSamples(@"E:\2DAM\DINTJavi\tema5\Imagenes");
+            Tipos = new ObservableCollection<String>(){"Americana", "China","Mexicana" };
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
