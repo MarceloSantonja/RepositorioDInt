@@ -46,15 +46,19 @@ namespace Comida
             set
             {
                 platoSeleccionado = value;
-                NotifyPropertyChanged("PlatoSelecionado");
+                NotifyPropertyChanged("PlatoSeleccionado");
             }
         }
 
         public MainWindowVM()
         {
-
             Platos = Plato.GetSamples(@"E:\2DAM\DINTJavi\tema5\Imagenes");
             Tipos = new ObservableCollection<string> { "Americana", "China", "Mexicana" };
+        }
+
+        public void LimpiarSeleccion()
+        {
+            PlatoSeleccionado = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
