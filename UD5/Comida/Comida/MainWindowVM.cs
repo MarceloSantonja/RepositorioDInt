@@ -10,24 +10,15 @@ namespace Comida
 {
     class MainWindowVM : INotifyPropertyChanged
     {
-        private Plato platoSelecionado;
 
-        public Plato PlatoSelecionado
+
+
+
+        private ObservableCollection<string> tipos;
+
+        public ObservableCollection<string> Tipos
         {
-            get { return platoSelecionado; }
-            set { 
-                platoSelecionado = value;
-                NotifyPropertyChanged("PlatoSelecionado");
-            }
-        }
-
-       
-
-        private ObservableCollection<String> tipos;
-
-        public ObservableCollection<String> Tipos
-        {
-            get { return tipos; }
+            get => tipos;
             set
             {
                 tipos = value;
@@ -39,31 +30,37 @@ namespace Comida
         private ObservableCollection<Plato> platos;
         public ObservableCollection<Plato> Platos
         {
-            get { return platos; }
-            set {
+            get => platos;
+            set
+            {
                 platos = value;
                 NotifyPropertyChanged("Platos");
             }
         }
 
+        private Plato platoSeleccionado;
+
+        public Plato PlatoSeleccionado
+        {
+            get => platoSeleccionado;
+            set
+            {
+                platoSeleccionado = value;
+                NotifyPropertyChanged("PlatoSelecionado");
+            }
+        }
 
         public MainWindowVM()
         {
-            
+
             Platos = Plato.GetSamples(@"E:\2DAM\DINTJavi\tema5\Imagenes");
-            Tipos = new ObservableCollection<String>(){"Americana", "China","Mexicana" };
+            Tipos = new ObservableCollection<string> { "Americana", "China", "Mexicana" };
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
-
-
-
-
     }
 }

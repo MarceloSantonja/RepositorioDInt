@@ -21,7 +21,7 @@ namespace Comida
     public partial class MainWindow : Window
     {
 
-        private readonly MainWindowVM vm = new MainWindowVM();
+        private MainWindowVM vm = new MainWindowVM();
 
         public MainWindow()
         {

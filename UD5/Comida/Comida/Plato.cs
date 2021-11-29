@@ -11,13 +11,79 @@ namespace Comida
 {
     class Plato : INotifyPropertyChanged
     {
-        public string Nombre { get; set; }
-        public string Imagen { get; set; }
-        public string Tipo { get; set; }
-        public bool Gluten { get; set; }
-        public bool Soja { get; set; }
-        public bool Leche { get; set; }
-        public bool Sulfitos { get; set; }
+
+        private string nombre;
+        private string imagen;
+        private string tipo;
+        private bool gluten;
+        private bool soja;
+        private bool leche;
+        private bool sulfitos;
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set
+            {
+                nombre = value;
+                NotifyPropertyChanged("Nombre");
+            }
+        }
+
+        public string Imagen
+        {
+            get => imagen;
+            set
+            {
+                imagen = value;
+                NotifyPropertyChanged("Imagen");
+            }
+        }
+        public string Tipo
+        {
+            get => tipo;
+            set
+            {
+                tipo = value;
+                NotifyPropertyChanged("Tipo");
+            }
+        }
+        public bool Gluten
+        {
+            get => gluten;
+            set
+            {
+                gluten = value;
+                NotifyPropertyChanged("Gluten");
+            }
+        }
+        public bool Soja
+        {
+            get => soja;
+            set
+            {
+                soja = value;
+                NotifyPropertyChanged("Soja");
+            }
+        }
+        public bool Leche
+        {
+            get => leche;
+            set
+            {
+                leche = value;
+                NotifyPropertyChanged("Leche");
+            }
+        }
+        public bool Sulfitos
+        {
+            get => sulfitos;
+            set
+            {
+                sulfitos = value;
+                NotifyPropertyChanged("Sulfitos");
+            }
+        }
 
         public Plato(string nombre, string imagen, string tipo, bool gluten, bool soja, bool leche, bool sulfitos)
         {
@@ -38,7 +104,7 @@ namespace Comida
 
         public void NotifyPropertyChanged(string propertyName)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public static ObservableCollection<Plato> GetSamples(string rutaImagenes)
