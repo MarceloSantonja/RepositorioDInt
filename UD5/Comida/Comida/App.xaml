@@ -40,7 +40,7 @@
                          Value="True">
                     <Setter Property="Effect">
                         <Setter.Value>
-                            <DropShadowEffect ShadowDepth="0" />
+                            <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Color="red"/>
                         </Setter.Value>
                     </Setter>
                     <Setter Property="BorderBrush"
