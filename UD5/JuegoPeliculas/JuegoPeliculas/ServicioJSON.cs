@@ -11,7 +11,11 @@ namespace JuegoPeliculas
 {
     class ServicioJson
     {
-        public void ExportarJSON(in ObservableCollection<Pelicula> lista, in string rutaFichero)
+        public ServicioJson()
+        {
+        }
+
+        public void GuardarJSON(in ObservableCollection<Pelicula> lista, in string rutaFichero)
         {
             try
             {
@@ -24,7 +28,7 @@ namespace JuegoPeliculas
             }
 
         }
-        public ObservableCollection<Pelicula> ImportarJSON(in string rutaFichero)
+        public ObservableCollection<Pelicula> CargarJSON(in string rutaFichero)
         {
            
             string peliculasJson = "";

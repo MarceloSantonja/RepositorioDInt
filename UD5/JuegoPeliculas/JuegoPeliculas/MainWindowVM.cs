@@ -10,6 +10,9 @@ namespace JuegoPeliculas
 {
     class MainWindowVM : ObservableObject
     {
+        private ServicioDialogos sDialogo;
+        private ServicioJson sJson;
+
         private ObservableCollection<Pelicula> peliculas;
 
         public ObservableCollection<Pelicula> Peliculas
@@ -24,8 +27,32 @@ namespace JuegoPeliculas
             set { SetProperty(ref peliculaSeleccionada, value); }
         }
 
+
+
         public MainWindowVM()
         {
+            sDialogo = new ServicioDialogos();
+            sJson = new ServicioJson();
         }
+
+        public void CargarJson()
+        {
+            string ruta =sDialogo.ObtenerRutaArchivoLocal(ServicioDialogos.tipoArchivo.JSON);
+            if (ruta!="")
+            {
+                Peliculas= sJson.CargarJSON(ruta);
+            }
+        }
+        public void GuardarJson()
+        {
+            string ruta = sDialogo.ObtenerRutaArchivoGuardar(ServicioDialogos.tipoArchivo.JSON);
+            if (ruta != "")
+            {
+                sJson.GuardarJSON(Peliculas,ruta);
+            }
+        }
+
+
+
     }
 }

@@ -26,5 +26,15 @@ namespace JuegoPeliculas
             InitializeComponent();
             this.DataContext = vm;
         }
+
+        private void CargarJsonBoton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.CargarJson();
+        }
+
+        private void GuardarJsonBoton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.GuardarJson();
+        }
     }
 }
