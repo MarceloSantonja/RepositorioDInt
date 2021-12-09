@@ -10,8 +10,9 @@ namespace JuegoPeliculas
 {
     class MainWindowVM : ObservableObject
     {
-        private ServicioDialogos sDialogo;
-        private ServicioJson sJson;
+        private readonly ServicioDialogos sDialogo;
+        private readonly ServicioJson sJson;
+        private Partida partida;
 
         private ObservableCollection<Pelicula> peliculas;
 
@@ -26,29 +27,51 @@ namespace JuegoPeliculas
             get => peliculaSeleccionada;
             set { SetProperty(ref peliculaSeleccionada, value); }
         }
+        private ObservableCollection<string> nivel;
+        public ObservableCollection<string> Nivel { 
+            get => nivel; 
+            set { SetProperty(ref nivel, value);} 
+        }
+        private ObservableCollection<string> generos;
+        public ObservableCollection<string> Generos
+        {
+            get => generos;
+            set { SetProperty(ref generos, value); }
+        }
+
 
 
 
         public MainWindowVM()
         {
+            Peliculas = new ObservableCollection<Pelicula>();
             sDialogo = new ServicioDialogos();
             sJson = new ServicioJson();
+            Nivel = new ObservableCollection<string> { "Fácil","Media","Difícil"};
+            Generos = new ObservableCollection<string> { "Acción", "Ciencia-Ficción", "Comedia", "Drama", "Terror" };
+            Random n = new Random();
+            n.Next()
+
+            
         }
 
         public void CargarJson()
         {
-            string ruta =sDialogo.ObtenerRutaArchivoLocal(ServicioDialogos.tipoArchivo.JSON);
-            if (ruta!="")
+            string ruta = sDialogo.ObtenerRutaArchivoLocal(ServicioDialogos.tipoArchivo.JSON);
+            if (ruta != "")
             {
-                Peliculas= sJson.CargarJSON(ruta);
+                Peliculas = sJson.CargarJSON(ruta);
+                sDialogo.MostrarMensaje("Se han cardado " + Peliculas.Count() + " Peliculas");
             }
+
         }
         public void GuardarJson()
         {
             string ruta = sDialogo.ObtenerRutaArchivoGuardar(ServicioDialogos.tipoArchivo.JSON);
             if (ruta != "")
             {
-                sJson.GuardarJSON(Peliculas,ruta);
+                sJson.GuardarJSON(Peliculas, ruta);
+                sDialogo.MostrarMensaje("Se han guardado las peliculas");
             }
         }
 

@@ -121,32 +121,22 @@
                                         Width="150"
                                         Height="150">
                                 <Image Source="assets\generos\accion.ico"
-                                   Width="100"
-                                   Height="100" />
-                            
-                                <TextBlock Text="GeneroClasePelicula" HorizontalAlignment="Center" />
-                           
+                                       Width="100"
+                                       Height="100" />
 
-                        </StackPanel>
+                                <TextBlock Text="GeneroClasePelicula"
+                                           HorizontalAlignment="Center" />
+
+
+                            </StackPanel>
                         </Viewbox>
-
-
-
-
-
-
 
                     </DockPanel>
                     <StackPanel>
                         <TextBlock Text="Cartel del la película" />
                         <Image Source="assets\generos\accion.ico"
-                              Stretch="Fill" />
+                               Stretch="Fill" />
                     </StackPanel>
-
-
-
-
-
                 </DockPanel>
 
             </TabItem>
@@ -159,11 +149,15 @@
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel>
-                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10">
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10" Height="30">
                         <TextBlock Text="Nivel de dificultad" />
-                        <ComboBox />
+                        <ComboBox   ItemsSource="{Binding Path= Nivel}"
+                                    DisplayMemberPath="{Binding Path= PeliculaSeleccionada.Nivel}"
+                                    Width="130" />
+                        <!-- no coge el valor de la PeliculaSeleccionada-->
                         <TextBlock Text="Género" />
-                        <ComboBox />
+                        <ComboBox  ItemsSource="{Binding Path= Generos}"
+                                   DisplayMemberPath="{Binding Path= PeliculaSeleccionada.Genero}"  Width="130"/>
                     </StackPanel>
                     <DockPanel DockPanel.Dock="Right" LastChildFill="False">
                         <StackPanel DockPanel.Dock="Top">
@@ -197,13 +191,16 @@
                                    Grid.Row="2"
                                    Grid.Column="0" />
                         <TextBox Grid.Row="0"
-                                 Grid.Column="1" />
+                                 Grid.Column="1"
+                                 Text="{Binding Path=PeliculaSeleccionada.Titulo}"/>
                         <TextBox Grid.Row="1"
-                                 Grid.Column="1" />
+                                 Grid.Column="1"
+                                 Text="{Binding Path=PeliculaSeleccionada.Pista}" />
                         <TextBox Grid.Row="2"
-                                 Grid.Column="1" />
+                                 Grid.Column="1"
+                                 Text="{Binding Path=PeliculaSeleccionada.Cartel}" />
                     </Grid>
-                    <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Path=Peliculas}" SelectedItem="{Binding Path=PeliculaSeleccionada}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel></WrapPanel>
@@ -211,11 +208,15 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel>
-                                <Image Source="assets\generos\accion.ico"
-                                       Height="100" />
-                                <TextBlock Text=" hola" />
-                                </StackPanel>
+                                <Grid Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="150" />
+                                        <RowDefinition  />
+                                    </Grid.RowDefinitions>   
+                                <Image Grid.Row="0" Source="{Binding Cartel}"
+                                       Height="150" VerticalAlignment="Top" />
+                                <TextBlock Grid.Row="1" Text="{Binding Titulo}" TextWrapping="Wrap" Width="100" />
+                                </Grid>
                             </DataTemplate>
                             
                         </ListBox.ItemTemplate>

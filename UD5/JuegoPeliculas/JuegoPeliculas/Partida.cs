@@ -5,31 +5,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace JuegoPeliculas
 {
-    class Partida
+    class Partida : ObservableObject
     {
 
-        private ObservableCollection<Pelicula> peliculas;
+        private List<Pelicula> peliculas;
 
-     
-        public bool PistaVista { get => pistaVista; set{ SetProperty(ref pistaVista, ) } }
+        public List<Pelicula> Peliculas { get => peliculas; set => peliculas = value; }
 
-        public ObservableCollection<Pelicula> Peliculas { get => peliculas; set => peliculas = value; }
+        private List<bool> pistaVista;
+        public List<bool> PistaVista { get => pistaVista; set=> pistaVista= value;  }
 
-        private bool pistaVista;
+        private int puntuacion;
+        public int Puntuacion { get => puntuacion; set => puntuacion = value; }
 
-        public Partida(ObservableCollection<Pelicula> peliculas)
+        private Pelicula peliculaActual;
+        public Pelicula PeliculaActual { get => peliculaActual; set => peliculaActual = value; }
+
+       
+        
+
+
+
+        public Partida(List<Pelicula> peliculas)
         {
-            this.Peliculas = peliculas;
-            
+            Peliculas = peliculas;
+            PistaVista = new List<bool>(peliculas.Count());
+            for (int i = 0; i < peliculas.Count(); i++)
+            {
+                PistaVista[i] = false;
+            }
+            Puntuacion = 0;
+
+
+
         }
+
+
+
+
+
+
     }
 }

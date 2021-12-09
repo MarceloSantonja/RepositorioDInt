@@ -34,7 +34,7 @@ namespace JuegoPeliculas
                     break;
             }
             if (openFileDialog.ShowDialog() == true)
-                ruta = Path.GetFileName(openFileDialog.FileName);
+                ruta = Path.GetFullPath(openFileDialog.FileName);
             return ruta;
 
         }
@@ -53,7 +53,8 @@ namespace JuegoPeliculas
                     break;
             }
             if (saveFileDialog.ShowDialog() == true)
-                ruta = Path.GetFileName(saveFileDialog.FileName);
+                ruta = Path.GetFullPath(saveFileDialog.FileName);
+            
             return ruta;
 
         }
