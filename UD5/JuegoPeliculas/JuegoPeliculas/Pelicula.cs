@@ -6,6 +6,8 @@ namespace JuegoPeliculas
     class Pelicula : ObservableObject
     {
         private string titulo;
+
+        // hay que crear una clase partida que controle el checkbox de ver pista
         public string Titulo
         {
             get { return titulo; }

@@ -117,7 +117,9 @@
                         <CheckBox Content="Ver pista"   DockPanel.Dock="Top"/>
                         <TextBlock Text="PistaClasePelicula" DockPanel.Dock="Top" />
                         <Viewbox>
-                            <StackPanel VerticalAlignment="Center">
+                            <StackPanel VerticalAlignment="Center"
+                                        Width="150"
+                                        Height="150">
                                 <Image Source="assets\generos\accion.ico"
                                    Width="100"
                                    Height="100" />
@@ -165,8 +167,10 @@
                     </StackPanel>
                     <DockPanel DockPanel.Dock="Right" LastChildFill="False">
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Content="Cargar JSON" />
-                            <Button Content="Guardar en JSON" />
+                            <Button x:Name="CargarJsonBoton" Content="Cargar JSON"
+                                    Click="CargarJsonBoton_Click" />
+                            <Button x:Name="GuardarJsonBoton" Content="Guardar en JSON"
+                                    Click="GuardarJsonBoton_Click" />
                             <Button Content="Añadir película" Margin="5,30,5,5"/>
                             <Button Content="Editar película" />
                             <Button Content="Eliminar película" />
