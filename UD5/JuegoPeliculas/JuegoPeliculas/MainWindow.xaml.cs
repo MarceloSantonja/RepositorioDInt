@@ -36,5 +36,10 @@ namespace JuegoPeliculas
         {
             vm.GuardarJson();
         }
+
+        private void NuevaPartidaBoton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.GeneraPartida();
+        }
     }
 }

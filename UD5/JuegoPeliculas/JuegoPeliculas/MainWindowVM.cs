@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace JuegoPeliculas
 {
@@ -13,7 +14,7 @@ namespace JuegoPeliculas
         private const int TAMAÑO_PARTIDA = 5;
         private readonly ServicioDialogos sDialogo;
         private readonly ServicioJson sJson;
-        private Partida partida;
+
 
         private ObservableCollection<Pelicula> peliculas;
 
@@ -29,9 +30,10 @@ namespace JuegoPeliculas
             set { SetProperty(ref peliculaSeleccionada, value); }
         }
         private ObservableCollection<string> nivel;
-        public ObservableCollection<string> Nivel { 
-            get => nivel; 
-            set { SetProperty(ref nivel, value);} 
+        public ObservableCollection<string> Nivel
+        {
+            get => nivel;
+            set { SetProperty(ref nivel, value); }
         }
         private ObservableCollection<string> generos;
         public ObservableCollection<string> Generos
@@ -39,20 +41,23 @@ namespace JuegoPeliculas
             get => generos;
             set { SetProperty(ref generos, value); }
         }
-
-
-
+        private Partida partidaActual;
+        internal Partida PartidaActual
+        {
+            get => partidaActual;
+            set{SetProperty(ref partidaActual, value);}
+        }
 
         public MainWindowVM()
         {
             Peliculas = new ObservableCollection<Pelicula>();
             sDialogo = new ServicioDialogos();
             sJson = new ServicioJson();
-            Nivel = new ObservableCollection<string> { "Fácil","Media","Difícil"};
+            Nivel = new ObservableCollection<string> { "Fácil", "Media", "Difícil" };
             Generos = new ObservableCollection<string> { "Acción", "Ciencia-Ficción", "Comedia", "Drama", "Terror" };
-            
 
-            
+
+
         }
 
         public void CargarJson()
@@ -61,7 +66,7 @@ namespace JuegoPeliculas
             if (ruta != "")
             {
                 Peliculas = sJson.CargarJSON(ruta);
-                sDialogo.MostrarMensaje("Se han cardado " + Peliculas.Count() + " Peliculas");
+                sDialogo.MostrarMensaje("Se han cardado " + Peliculas.Count() + " Peliculas", "Cargar JSON", MessageBoxImage.Information);
             }
 
         }
@@ -71,20 +76,40 @@ namespace JuegoPeliculas
             if (ruta != "")
             {
                 sJson.GuardarJSON(Peliculas, ruta);
-                sDialogo.MostrarMensaje("Se han guardado las peliculas");
+                sDialogo.MostrarMensaje("Se han guardado las peliculasPartida", "Guardar JSON", MessageBoxImage.Information);
             }
         }
 
-        public void GeneraPartida() { 
-        
-            if(TAMAÑO_PARTIDA == Peliculas.Count())
+        public void GeneraPartida()
+        {
+            int posicionPelicula;
+            List<Pelicula> peliculasPartida = new List<Pelicula>();
+            List<Pelicula> peliculasAuxiliar = new List<Pelicula>(Peliculas);
+            Random random = new Random();
+
+
+            if (peliculasAuxiliar.Count() < TAMAÑO_PARTIDA)
             {
-
-                partida = new Partida(new List<Pelicula>(Peliculas));
-
+                sDialogo.MostrarMensaje("No se ha podido crear la partidaActual, no hay suficientes peliculasPartida", "Nueva partidaActual", MessageBoxImage.Error);
             }
-        
-        
+            else
+            {
+                for (int i = 0; i < TAMAÑO_PARTIDA; i++)
+                {
+                    posicionPelicula = random.Next(peliculasAuxiliar.Count());
+
+                    peliculasPartida.Add(peliculasAuxiliar[posicionPelicula]);
+                    peliculasAuxiliar.Remove(peliculasAuxiliar[posicionPelicula]);
+                }
+
+
+                PartidaActual = new Partida(peliculasPartida);
+                sDialogo.MostrarMensaje("Se ha creado la partidaActual", "Nueva partidaActual", MessageBoxImage.Information);
+            }
+
+
+
+
         }
 
 

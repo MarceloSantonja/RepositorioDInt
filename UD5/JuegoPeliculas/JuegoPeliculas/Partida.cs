@@ -12,39 +12,50 @@ namespace JuegoPeliculas
     class Partida : ObservableObject
     {
 
-        private List<Pelicula> peliculas;
+        private List<PeliculaEnJuego> peliculasPartida;
 
-        public List<Pelicula> Peliculas { get => peliculas; set => peliculas = value; }
+        public List<PeliculaEnJuego> PeliculasPartida { get => peliculasPartida; set => peliculasPartida = value; }
 
-        private List<bool> pistaVista;
-        public List<bool> PistaVista { get => pistaVista; set=> pistaVista= value;  }
 
         private int puntuacion;
-        public int Puntuacion { get => puntuacion; set => puntuacion = value; }
+        public int Puntuacion { get => puntuacion; set { SetProperty(ref puntuacion, value); } }
 
-        private Pelicula peliculaActual;
-        public Pelicula PeliculaActual { get => peliculaActual; set => peliculaActual = value; }
+        private PeliculaEnJuego peliculaActual;
+        public PeliculaEnJuego PeliculaActual { get => peliculaActual; set { SetProperty(ref peliculaActual, value); } }
 
-       
+        private int posicionActual;
+        public int PosicionActual { get => posicionActual; set { SetProperty(ref posicionActual, value); } }
+
+      
         
-
-
-
         public Partida(List<Pelicula> peliculas)
         {
-            Peliculas = peliculas;
-            PistaVista = new List<bool>(peliculas.Count());
-            for (int i = 0; i < peliculas.Count(); i++)
+            PeliculasPartida = new List<PeliculaEnJuego>();
+            foreach (Pelicula pelicula in peliculas)
             {
-                PistaVista[i] = false;
+                PeliculasPartida.Add(new PeliculaEnJuego( pelicula));
+
             }
             Puntuacion = 0;
-
-
-
+            PosicionActual = 1;
+            peliculaActual = PeliculasPartida[PosicionActual-1];
         }
 
-
+        public void AvanzaPosicion()
+        {
+            if (PosicionActual < PeliculasPartida.Count())
+            {
+                PosicionActual++;
+                peliculaActual = peliculasPartida[PosicionActual-1];
+            }
+        }
+        public void RetrocedePosicion()
+        {
+            if (PosicionActual > 1){
+                PosicionActual--;
+                peliculaActual = peliculasPartida[PosicionActual - 1];
+            }
+        }
 
 
 

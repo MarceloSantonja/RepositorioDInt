@@ -11,7 +11,7 @@ namespace JuegoPeliculas
         public string Titulo
         {
             get { return titulo; }
-            set { SetProperty(ref titulo, value); }
+            set { SetProperty(ref titulo, value);}
         }
 
         private string pista;
@@ -50,5 +50,6 @@ namespace JuegoPeliculas
             Nivel = nivel;
             Genero = genero;
         }
+     
     }
 }

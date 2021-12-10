@@ -8,7 +8,7 @@
         Title="Juego peliculas"
         Icon="assets\peliculas.ico"
         Height="550"
-        Width="800" 
+        Width="800"
         MinHeight="500"
         MinWidth="600">
     <Window.Resources>
@@ -46,7 +46,8 @@
                     <StackPanel Orientation="Horizontal"
                                 Height="20">
                         <Image Source="assets\play.ico" />
-                        <TextBlock Text="Jugar"  Margin="0"/>
+                        <TextBlock Text="Jugar"
+                                   Margin="0" />
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel>
@@ -55,19 +56,17 @@
                                 HorizontalAlignment="Center"
                                 Height="30">
                         <Button Template="{DynamicResource ButtonControlTemplate}">
-                            <Image Source="assets\arrow.png"
-                                    />
+                            <Image Source="assets\arrow.png" />
                         </Button>
 
-                        <TextBlock >
-                            <Run Text="1" />
+                        <TextBlock>
+                            <Run Text="{Binding PartidaActual.PosicionActual}" />
                             <Run Text=" / " />
                             <Run Text="5" />
 
                         </TextBlock>
                         <Button Template="{DynamicResource ButtonControlTemplate}">
                             <Image Source="assets\arrow.png"
-                                   
                                    RenderTransformOrigin="0.5,0.5">
                                 <Image.RenderTransform>
                                     <TransformGroup>
@@ -82,40 +81,48 @@
                             </Image>
                         </Button>
                     </StackPanel>
-                    <DockPanel DockPanel.Dock="Right" Margin="10" Width="300" >
+                    <DockPanel DockPanel.Dock="Right"
+                               Margin="10"
+                               Width="300">
                         <TextBlock Text="Puntuación"
-                                   DockPanel.Dock="Top"/>
-                        <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-                        <Border BorderBrush="Black"
-                                BorderThickness="3"
-                                Margin="10"
-                                Height="100"
-                                Width="100" 
-                                DockPanel.Dock="Left">
-                            <Viewbox>
-                                <TextBlock Text="Puntuación"></TextBlock>
-                            </Viewbox>
-                        </Border>
-                            <StackPanel Orientation="Vertical" DockPanel.Dock="Right">
-                                
-                        <Button Content="Nueva partida"
-                                Margin="10,20"/>
-                        <Button Content="Finalizar partida"
-                                Margin="10,20" />
+                                   DockPanel.Dock="Top" />
+                        <DockPanel DockPanel.Dock="Top"
+                                   LastChildFill="False">
+                            <Border BorderBrush="Black"
+                                    BorderThickness="3"
+                                    Margin="10"
+                                    Height="100"
+                                    Width="100"
+                                    DockPanel.Dock="Left">
+                                <Viewbox>
+                                    <TextBlock Text="Puntuación"></TextBlock>
+                                </Viewbox>
+                            </Border>
+                            <StackPanel Orientation="Vertical"
+                                        DockPanel.Dock="Right">
+
+                                <Button x:Name="NuevaPartidaBoton"
+                                        Content="Nueva partida"
+                                        Margin="10,20"
+                                        Click="NuevaPartidaBoton_Click" />
+                                <Button Content="Finalizar partida"
+                                        Margin="10,20" />
                             </StackPanel>
-                           
+
 
                         </DockPanel>
-                        <TextBlock  Text="Titulo de la pelicula" DockPanel.Dock="Top"
-                                     />
+                        <TextBlock  Text="Titulo de la pelicula"
+                                    DockPanel.Dock="Top" />
                         <DockPanel DockPanel.Dock="Top">
                             <Button Content="Validar"
                                     DockPanel.Dock="Right" />
                             <TextBox></TextBox>
                         </DockPanel>
-                        
-                        <CheckBox Content="Ver pista"   DockPanel.Dock="Top"/>
-                        <TextBlock Text="PistaClasePelicula" DockPanel.Dock="Top" />
+
+                        <CheckBox Content="Ver pista"
+                                  DockPanel.Dock="Top" />
+                        <TextBlock Text="PistaClasePelicula"
+                                   DockPanel.Dock="Top" />
                         <Viewbox>
                             <StackPanel VerticalAlignment="Center"
                                         Width="150"
@@ -134,7 +141,7 @@
                     </DockPanel>
                     <StackPanel>
                         <TextBlock Text="Cartel del la película" />
-                        <Image Source="assets\generos\accion.ico"
+                        <Image Source="{Binding PartidaActual.PeliculaActual.Cartel}"
                                Stretch="Fill" />
                     </StackPanel>
                 </DockPanel>
@@ -145,31 +152,41 @@
                     <StackPanel Orientation="Horizontal"
                                 Height="20">
                         <Image Source="assets\opciones.ico" />
-                        <TextBlock Text="Opciones" Margin="0" />
+                        <TextBlock Text="Opciones"
+                                   Margin="0" />
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel>
-                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10" Height="30">
+                    <StackPanel DockPanel.Dock="Bottom"
+                                Orientation="Horizontal"
+                                Margin="10"
+                                Height="30">
                         <TextBlock Text="Nivel de dificultad" />
                         <ComboBox   ItemsSource="{Binding Path= Nivel}"
-                                    DisplayMemberPath="{Binding Path= PeliculaSeleccionada.Nivel}"
+                                    SelectedItem="{Binding Path=PeliculaSeleccionada.Nivel}"
                                     Width="130" />
-                        <!-- no coge el valor de la PeliculaSeleccionada-->
+                        <!-- no coge el valor de la PeliculaSeleccionada habia que poner selectedItem no displayMemberPath-->
                         <TextBlock Text="Género" />
                         <ComboBox  ItemsSource="{Binding Path= Generos}"
-                                   DisplayMemberPath="{Binding Path= PeliculaSeleccionada.Genero}"  Width="130"/>
+                                   SelectedItem="{Binding Path= PeliculaSeleccionada.Genero}"
+                                   Width="130" />
                     </StackPanel>
-                    <DockPanel DockPanel.Dock="Right" LastChildFill="False">
+                    <DockPanel DockPanel.Dock="Right"
+                               LastChildFill="False">
                         <StackPanel DockPanel.Dock="Top">
-                            <Button x:Name="CargarJsonBoton" Content="Cargar JSON"
+                            <Button x:Name="CargarJsonBoton"
+                                    Content="Cargar JSON"
                                     Click="CargarJsonBoton_Click" />
-                            <Button x:Name="GuardarJsonBoton" Content="Guardar en JSON"
+                            <Button x:Name="GuardarJsonBoton"
+                                    Content="Guardar en JSON"
                                     Click="GuardarJsonBoton_Click" />
-                            <Button Content="Añadir película" Margin="5,30,5,5"/>
+                            <Button Content="Añadir película"
+                                    Margin="5,30,5,5" />
                             <Button Content="Editar película" />
                             <Button Content="Eliminar película" />
                         </StackPanel>
-                        <Button Content="Examinar"  DockPanel.Dock="Bottom"/>
+                        <Button Content="Examinar"
+                                DockPanel.Dock="Bottom" />
                     </DockPanel>
                     <Grid DockPanel.Dock="Bottom">
                         <Grid.ColumnDefinitions>
@@ -192,7 +209,7 @@
                                    Grid.Column="0" />
                         <TextBox Grid.Row="0"
                                  Grid.Column="1"
-                                 Text="{Binding Path=PeliculaSeleccionada.Titulo}"/>
+                                 Text="{Binding Path=PeliculaSeleccionada.Titulo}" />
                         <TextBox Grid.Row="1"
                                  Grid.Column="1"
                                  Text="{Binding Path=PeliculaSeleccionada.Pista}" />
@@ -200,7 +217,9 @@
                                  Grid.Column="1"
                                  Text="{Binding Path=PeliculaSeleccionada.Cartel}" />
                     </Grid>
-                    <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Path=Peliculas}" SelectedItem="{Binding Path=PeliculaSeleccionada}">
+                    <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             ItemsSource="{Binding Path=Peliculas}"
+                             SelectedItem="{Binding Path=PeliculaSeleccionada}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel></WrapPanel>
@@ -211,20 +230,25 @@
                                 <Grid Margin="5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="150" />
-                                        <RowDefinition  />
-                                    </Grid.RowDefinitions>   
-                                <Image Grid.Row="0" Source="{Binding Cartel}"
-                                       Height="150" VerticalAlignment="Top" />
-                                <TextBlock Grid.Row="1" Text="{Binding Titulo}" TextWrapping="Wrap" Width="100" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0"
+                                           Source="{Binding Cartel}"
+                                           Height="150"
+                                           VerticalAlignment="Top" />
+                                    <TextBlock Grid.Row="1"
+                                               Text="{Binding Titulo}"
+                                               TextWrapping="Wrap"
+                                               Width="100" />
                                 </Grid>
                             </DataTemplate>
-                            
+
                         </ListBox.ItemTemplate>
-                        
-                        
+
+
                     </ListBox>
-                    
-                    
+
+
                 </DockPanel>
             </TabItem>
 
