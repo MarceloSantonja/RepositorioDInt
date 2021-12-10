@@ -10,6 +10,7 @@ namespace JuegoPeliculas
 {
     class MainWindowVM : ObservableObject
     {
+        private const int TAMAÑO_PARTIDA = 5;
         private readonly ServicioDialogos sDialogo;
         private readonly ServicioJson sJson;
         private Partida partida;
@@ -49,8 +50,7 @@ namespace JuegoPeliculas
             sJson = new ServicioJson();
             Nivel = new ObservableCollection<string> { "Fácil","Media","Difícil"};
             Generos = new ObservableCollection<string> { "Acción", "Ciencia-Ficción", "Comedia", "Drama", "Terror" };
-            Random n = new Random();
-            n.Next()
+            
 
             
         }
@@ -75,6 +75,17 @@ namespace JuegoPeliculas
             }
         }
 
+        public void GeneraPartida() { 
+        
+            if(TAMAÑO_PARTIDA == Peliculas.Count())
+            {
+
+                partida = new Partida(new List<Pelicula>(Peliculas));
+
+            }
+        
+        
+        }
 
 
     }
