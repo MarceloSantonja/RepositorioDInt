@@ -30,7 +30,7 @@ namespace JuegoPeliculas
         }
         public ObservableCollection<Pelicula> CargarJSON(in string rutaFichero)
         {
-           
+
             string peliculasJson = "";
             try
             {

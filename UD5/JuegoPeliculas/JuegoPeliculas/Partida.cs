@@ -11,50 +11,60 @@ namespace JuegoPeliculas
 {
     class Partida : ObservableObject
     {
+        public const int PUNTUACION_POR_PELICULA = 20;
+        public int NumeroPeliculas { get; set; }
 
-        private List<PeliculaEnJuego> peliculasPartida;
-
-        public List<PeliculaEnJuego> PeliculasPartida { get => peliculasPartida; set => peliculasPartida = value; }
+        public List<PeliculaEnJuego> PeliculasPartida { get; set; }
 
 
         private int puntuacion;
-        public int Puntuacion { get => puntuacion; set { SetProperty(ref puntuacion, value); } }
+        public int Puntuacion { get => puntuacion; set => SetProperty(ref puntuacion, value); }
 
         private PeliculaEnJuego peliculaActual;
-        public PeliculaEnJuego PeliculaActual { get => peliculaActual; set { SetProperty(ref peliculaActual, value); } }
+        public PeliculaEnJuego PeliculaActual { get => peliculaActual; set => SetProperty(ref peliculaActual, value); }
 
         private int posicionActual;
-        public int PosicionActual { get => posicionActual; set { SetProperty(ref posicionActual, value); } }
+        public int PosicionActual { get => posicionActual; set => SetProperty(ref posicionActual, value); }
 
-      
-        
+
+        public Partida()
+        {
+        }
+
         public Partida(List<Pelicula> peliculas)
         {
             PeliculasPartida = new List<PeliculaEnJuego>();
             foreach (Pelicula pelicula in peliculas)
             {
-                PeliculasPartida.Add(new PeliculaEnJuego( pelicula));
+                PeliculasPartida.Add(new PeliculaEnJuego(pelicula));
 
             }
             Puntuacion = 0;
             PosicionActual = 1;
-            peliculaActual = PeliculasPartida[PosicionActual-1];
+            PeliculaActual = PeliculasPartida[PosicionActual - 1];
+            NumeroPeliculas = PeliculasPartida.Count;
         }
 
         public void AvanzaPosicion()
         {
-            if (PosicionActual < PeliculasPartida.Count())
+            if (PosicionActual < NumeroPeliculas)
             {
                 PosicionActual++;
-                peliculaActual = peliculasPartida[PosicionActual-1];
+                PeliculaActual = PeliculasPartida[PosicionActual - 1];
             }
         }
         public void RetrocedePosicion()
         {
-            if (PosicionActual > 1){
+            if (PosicionActual > 1)
+            {
                 PosicionActual--;
-                peliculaActual = peliculasPartida[PosicionActual - 1];
+                PeliculaActual = PeliculasPartida[PosicionActual - 1];
             }
+        }
+        public void PeliculaAcertada()
+        {
+            PeliculaActual.PeliculaAdivinada = true;
+            Puntuacion += PeliculaActual.PistaVista ? PUNTUACION_POR_PELICULA/2 : PUNTUACION_POR_PELICULA;
         }
 
 

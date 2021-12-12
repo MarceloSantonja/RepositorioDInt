@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:A2Superheroe"
+        d:DataContext="{d:DesignInstance Type=local:MainWindowVM}"
         mc:Ignorable="d"
         Title="Superhéroe" Height="700" Width="1000" MinHeight="500" MinWidth="700" Icon=".\assets\shield.ico">
     <Window.Resources>

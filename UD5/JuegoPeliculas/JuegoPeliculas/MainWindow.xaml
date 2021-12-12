@@ -4,14 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JuegoPeliculas"
+        d:DataContext="{d:DesignInstance Type=local:MainWindowVM}"
         mc:Ignorable="d"
         Title="Juego peliculas"
         Icon="assets\peliculas.ico"
         Height="550"
         Width="800"
         MinHeight="500"
-        MinWidth="600">
+        MinWidth="750">
     <Window.Resources>
+        <local:InvertirBooleanoConverter x:Key="BooleanoConverter"></local:InvertirBooleanoConverter>
+        <local:VisibilidadConverter x:Key="VisibilidadConverter" />
+        <local:BackgroundConverter x:Key="BackgroundConverter" />
+        <Style TargetType="{x:Type DockPanel}"
+               x:Key="JuegoDockPanel">
+            <Setter Property="Background"
+                    Value="{Binding Path= PartidaActual.PeliculaActual.PeliculaJuego.Nivel,Converter={StaticResource BackgroundConverter}}" />
+
+        </Style>
+
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="HorizontalAlignment"
                     Value="Left" />
@@ -30,10 +41,128 @@
                     Value="5" />
 
         </Style>
+        <Style TargetType="{x:Type Button}"
+               x:Key="InicioPartidaBoton"
+               BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Content"
+                    Value="Reiniciar partida" />
+            <Setter Property="Margin"
+                    Value="10,20" />
+            <Setter Property="IsEnabled"
+                    Value="True" />
+            <EventSetter Event="Click"
+                         Handler="NuevaPartidaBoton_Click" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path= PartidaActual}"
+                             Value="{x:Null}">
+                    <Setter Property="Content"
+                            Value="Nueva partida" />
+                </DataTrigger>
+            </Style.Triggers>
+
+
+
+        </Style>
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="Height"
                     Value="20" />
 
+        </Style>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Stretch"
+                    Value="Fill" />
+        </Style>
+        <Style TargetType="{x:Type Image}"
+               BasedOn="{StaticResource {x:Type Image}}"
+               x:Key="IconoPelicula">
+            <Setter Property="Width"
+                    Value="100" />
+            <Setter Property="Height"
+                    Value="100" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path= PartidaActual.PeliculaActual.PeliculaJuego.Genero }"
+                             Value="Acción">
+                    <Setter Property="Source"
+                            Value=".\assets\generos\Acción.ico" />
+
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path= PartidaActual.PeliculaActual.PeliculaJuego.Genero }"
+                             Value="Ciencia-Ficción">
+                    <Setter Property="Source"
+                            Value=".\assets\generos\Ciencia-Ficción.ico" />
+
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaJuego.Genero }"
+                             Value="Comedia">
+                    <Setter Property="Source"
+                            Value=".\assets\generos\Comedia.ico" />
+
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaJuego.Genero }"
+                             Value="Drama">
+                    <Setter Property="Source"
+                            Value=".\assets\generos\Drama.ico" />
+
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path= PartidaActual.PeliculaActual.PeliculaJuego.Genero }"
+                             Value="Terror">
+                    <Setter Property="Source"
+                            Value=".\assets\generos\Terror.ico" />
+
+                </DataTrigger>
+
+
+            </Style.Triggers>
+
+
+
+
+
+
+
+        </Style>
+        <Style TargetType="{x:Type Image}" x:Key="PeliculaPartidaImagen"
+               BasedOn="{StaticResource {x:Type Image}}">
+            <Setter Property="Source"
+                    Value="{Binding Path= PartidaActual.PeliculaActual.PeliculaJuego.Cartel}" />
+            <Setter Property="Opacity"
+                    Value="1" />
+            <Style.Triggers>
+               <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaJuego.Nivel}"
+                                   Value="Fácil" />
+                        <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaAdivinada}"
+                                   Value="False" />
+                        
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Opacity"
+                            Value="0.6" />
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaJuego.Nivel}"
+                                   Value="Media" />
+                        <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaAdivinada}"
+                                   Value="False" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Opacity"
+                            Value="0.35" />
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaJuego.Nivel}"
+                                   Value="Difícil" />
+                        <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaAdivinada}"
+                                   Value="False" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Opacity"
+                            Value="0.2" />
+                </MultiDataTrigger>
+
+            </Style.Triggers>
+            
+            
         </Style>
 
 
@@ -50,22 +179,27 @@
                                    Margin="0" />
                     </StackPanel>
                 </TabItem.Header>
-                <DockPanel>
+                <DockPanel Style="{StaticResource JuegoDockPanel}"
+                           Margin="0,-1,-0.333,1">
                     <StackPanel DockPanel.Dock="Bottom"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Center"
                                 Height="30">
-                        <Button Template="{DynamicResource ButtonControlTemplate}">
-                            <Image Source="assets\arrow.png" />
+                        <Button Template="{DynamicResource ButtonControlTemplate}"
+                                Click="RetrocederBoton_Click">
+                            <Image x:Name="RetrocederBoton"
+                                   Source="assets\arrow.png" />
                         </Button>
 
                         <TextBlock>
-                            <Run Text="{Binding PartidaActual.PosicionActual}" />
+                            <Run  Text="{Binding  Path= PartidaActual.PosicionActual}" />
                             <Run Text=" / " />
-                            <Run Text="5" />
+                            <Run Text="{Binding  Path= PartidaActual.NumeroPeliculas}" />
 
                         </TextBlock>
-                        <Button Template="{DynamicResource ButtonControlTemplate}">
+                        <Button x:Name="AvanzarBoton"
+                                Template="{DynamicResource ButtonControlTemplate}"
+                                Click="AvanzarBoton_Click">
                             <Image Source="assets\arrow.png"
                                    RenderTransformOrigin="0.5,0.5">
                                 <Image.RenderTransform>
@@ -95,59 +229,70 @@
                                     Width="100"
                                     DockPanel.Dock="Left">
                                 <Viewbox>
-                                    <TextBlock Text="Puntuación"></TextBlock>
+                                    <TextBlock Text="{Binding Path=PartidaActual.Puntuacion}"></TextBlock>
                                 </Viewbox>
                             </Border>
                             <StackPanel Orientation="Vertical"
                                         DockPanel.Dock="Right">
 
                                 <Button x:Name="NuevaPartidaBoton"
-                                        Content="Nueva partida"
+                                        IsEnabled="True"
+                                        Style="{StaticResource InicioPartidaBoton}" />
+                                <Button x:Name="FinalizarPartidaBoton"
+                                        IsEnabled="{Binding Path= ExistePartida}"
+                                        Content="Finalizar partida"
                                         Margin="10,20"
-                                        Click="NuevaPartidaBoton_Click" />
-                                <Button Content="Finalizar partida"
-                                        Margin="10,20" />
+                                        Click="FinalizarPartidaBoton_Click" />
                             </StackPanel>
 
 
                         </DockPanel>
-                        <TextBlock  Text="Titulo de la pelicula"
-                                    DockPanel.Dock="Top" />
-                        <DockPanel DockPanel.Dock="Top">
-                            <Button Content="Validar"
-                                    DockPanel.Dock="Right" />
-                            <TextBox></TextBox>
-                        </DockPanel>
+                        <StackPanel IsEnabled="{Binding Path= ExistePartida}">
+                            <TextBlock  Text="Titulo de la pelicula"
+                                        
+                                        DockPanel.Dock="Top" />
+                            <DockPanel DockPanel.Dock="Top">
+                                <Button x:Name="ValidarBoton"
+                                        Content="Validar"
+                                        DockPanel.Dock="Right"
+                                        Click="ValidarBoton_Click" />
+                                <TextBox IsEnabled="{Binding Path=PartidaActual.PeliculaActual.PeliculaAdivinada, Converter={StaticResource BooleanoConverter}}"
+                                         Text="{Binding Path= PartidaActual.PeliculaActual.VariableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista,UpdateSourceTrigger=PropertyChanged}" /><!-- ayuda Mode... quiero que no salga el texto guardado en la propiedad sin tener que poner la propiedad a null cada vez que cambie de pelicula con los botones, se puede hacer? -->
+                            </DockPanel>
 
-                        <CheckBox Content="Ver pista"
-                                  DockPanel.Dock="Top" />
-                        <TextBlock Text="PistaClasePelicula"
-                                   DockPanel.Dock="Top" />
-                        <Viewbox>
-                            <StackPanel VerticalAlignment="Center"
+                            <CheckBox  x:Name="PistaCheckBox"
+                                       Content="Ver pista"
+                                       IsChecked="{Binding Path=PartidaActual.PeliculaActual.PistaVista}"
+                                       IsEnabled="{Binding Path=PartidaActual.PeliculaActual.PistaVista, Converter={StaticResource BooleanoConverter}}"
+                                       DockPanel.Dock="Top" />
+                            <TextBlock Text="{Binding Path=PartidaActual.PeliculaActual.PeliculaJuego.Pista}"
+                                       Visibility="{Binding ElementName=PistaCheckBox, Path=IsChecked , Converter={StaticResource VisibilidadConverter}}"
+                                       DockPanel.Dock="Top" />
+
+                            <StackPanel VerticalAlignment="Top"
                                         Width="150"
                                         Height="150">
-                                <Image Source="assets\generos\accion.ico"
+                                <Image Style="{StaticResource IconoPelicula}"
                                        Width="100"
                                        Height="100" />
 
-                                <TextBlock Text="GeneroClasePelicula"
+                                <TextBlock Text="{Binding Path=PartidaActual.PeliculaActual.PeliculaJuego.Genero}"
                                            HorizontalAlignment="Center" />
 
 
                             </StackPanel>
-                        </Viewbox>
+                        </StackPanel>
 
                     </DockPanel>
                     <StackPanel>
                         <TextBlock Text="Cartel del la película" />
-                        <Image Source="{Binding PartidaActual.PeliculaActual.Cartel}"
-                               Stretch="Fill" />
+                        <Image Style="{StaticResource PeliculaPartidaImagen}"/>
                     </StackPanel>
                 </DockPanel>
 
             </TabItem>
-            <TabItem Template="{DynamicResource TabItemControlTemplate}">
+            <TabItem Template="{DynamicResource TabItemControlTemplate}"
+                     IsEnabled="{Binding Path=ExistePartida,Converter={StaticResource BooleanoConverter}}">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal"
                                 Height="20">
@@ -160,16 +305,25 @@
                     <StackPanel DockPanel.Dock="Bottom"
                                 Orientation="Horizontal"
                                 Margin="10"
-                                Height="30">
+                                Height="30"
+                                IsEnabled="{Binding Path=EstaEditando}">
                         <TextBlock Text="Nivel de dificultad" />
                         <ComboBox   ItemsSource="{Binding Path= Nivel}"
                                     SelectedItem="{Binding Path=PeliculaSeleccionada.Nivel}"
                                     Width="130" />
-                        <!-- no coge el valor de la PeliculaSeleccionada habia que poner selectedItem no displayMemberPath-->
+                        <!-- no coge el valor de la PeliculaSeleccionada : habia que poner selectedItem no displayMemberPath-->
                         <TextBlock Text="Género" />
                         <ComboBox  ItemsSource="{Binding Path= Generos}"
                                    SelectedItem="{Binding Path= PeliculaSeleccionada.Genero}"
                                    Width="130" />
+                        <Button  x:Name="ConfirmarBoton"
+                                 Content="Confirmar cambios"
+                                 Background="ForestGreen"
+                                 Click="ConfirmarBoton_Click" />
+                        <Button  x:Name="CancelarBoton"
+                                 Content="Cancelar cambios"
+                                 Background="Red"
+                                 Click="CancelarBoton_Click" />
                     </StackPanel>
                     <DockPanel DockPanel.Dock="Right"
                                LastChildFill="False">
@@ -180,15 +334,25 @@
                             <Button x:Name="GuardarJsonBoton"
                                     Content="Guardar en JSON"
                                     Click="GuardarJsonBoton_Click" />
-                            <Button Content="Añadir película"
-                                    Margin="5,30,5,5" />
-                            <Button Content="Editar película" />
-                            <Button Content="Eliminar película" />
+                            <Button x:Name="AnyadirPeliculaBoton"
+                                    Content="Añadir película"
+                                    Margin="5,30,5,5"
+                                    Click="AnyadirPeliculaBoton_Click" />
+                            <Button x:Name="EditarPeliculaBoton"
+                                    Content="Editar película"
+                                    Click="EditarPeliculaBoton_Click" />
+                            <Button x:Name="EliminarPeliculaBoton"
+                                    Content="Eliminar película"
+                                    Click="EliminarPeliculaBoton_Click" />
                         </StackPanel>
-                        <Button Content="Examinar"
-                                DockPanel.Dock="Bottom" />
+                        <Button x:Name="ExaminarBoton"
+                                Content="Examinar"
+                                IsEnabled="{Binding Path=EstaEditando}"
+                                DockPanel.Dock="Bottom"
+                                Click="ExaminarBoton_Click" />
                     </DockPanel>
-                    <Grid DockPanel.Dock="Bottom">
+                    <Grid DockPanel.Dock="Bottom"
+                          IsEnabled="{Binding Path=EstaEditando}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
                             <ColumnDefinition />
@@ -219,7 +383,8 @@
                     </Grid>
                     <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                              ItemsSource="{Binding Path=Peliculas}"
-                             SelectedItem="{Binding Path=PeliculaSeleccionada}">
+                             SelectedItem="{Binding Path=PeliculaSeleccionada}"
+                             IsEnabled="{Binding Path=EstaEditando,Converter={StaticResource BooleanoConverter}}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel></WrapPanel>
@@ -233,11 +398,11 @@
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Image Grid.Row="0"
-                                           Source="{Binding Cartel}"
+                                           Source="{Binding Path= Cartel}"
                                            Height="150"
                                            VerticalAlignment="Top" />
                                     <TextBlock Grid.Row="1"
-                                               Text="{Binding Titulo}"
+                                               Text="{Binding  Path=Titulo}"
                                                TextWrapping="Wrap"
                                                Width="100" />
                                 </Grid>

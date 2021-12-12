@@ -27,15 +27,11 @@ namespace A2Superheroe
         {
             InitializeComponent();
             this.DataContext = vm;
-          
-
-          
         }
 
         private void AtrasImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             vm.Retroceder();
-
         }
 
         private void AdelanteImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

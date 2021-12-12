@@ -16,10 +16,10 @@ namespace JuegoPeliculas
         }
 
         public enum tipoArchivo { JSON, Imagen };
-        
 
 
-        public  string ObtenerRutaArchivoLocal(in tipoArchivo tipo)
+
+        public string ObtenerRutaArchivoLocal(in tipoArchivo tipo)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
@@ -38,9 +38,9 @@ namespace JuegoPeliculas
             return ruta;
 
         }
-        public  string ObtenerRutaArchivoGuardar(in tipoArchivo tipo)
+        public string ObtenerRutaArchivoGuardar(in tipoArchivo tipo)
         {
-           
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             string ruta = "";
             switch (tipo)
@@ -54,14 +54,15 @@ namespace JuegoPeliculas
             }
             if (saveFileDialog.ShowDialog() == true)
                 ruta = Path.GetFullPath(saveFileDialog.FileName);
-            
+
             return ruta;
 
         }
-        public void MostrarMensaje(in string texto ,in string tituloVentana ,in MessageBoxImage icono  ) {
-            
+        public void MostrarMensaje(in string texto, in string tituloVentana, in MessageBoxImage icono)
+        {
+
             MessageBox.Show(texto, tituloVentana, MessageBoxButton.OK, icono);
-           
+
         }
 
 

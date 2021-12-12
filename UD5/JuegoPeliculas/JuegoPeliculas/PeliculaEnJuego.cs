@@ -11,14 +11,25 @@ namespace JuegoPeliculas
     {
         private Pelicula peliculaJuego;
         public Pelicula PeliculaJuego { get => peliculaJuego; set { SetProperty(ref peliculaJuego, value); } }
-        private bool peliculaVista;
-        public bool PeliculaVista { get => peliculaVista; set {SetProperty(ref peliculaVista, value); } }
+        private bool pistaVista;
+        public bool PistaVista { get => pistaVista; set {SetProperty(ref pistaVista, value); } }
+
+        private bool peliculaAdivinada;
+        public bool PeliculaAdivinada { get => peliculaAdivinada; set { SetProperty(ref peliculaAdivinada, value); } }
+        private string variableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista;
+        public string VariableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista { get => variableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista; set { SetProperty(ref variableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista, value); } }
+
+
+
 
         public PeliculaEnJuego(Pelicula pelicula)
         {
             PeliculaJuego = pelicula;
-            peliculaVista = false;
+            PistaVista = false;
+            PeliculaAdivinada = false;
         }
+
+   
 
     }
 }

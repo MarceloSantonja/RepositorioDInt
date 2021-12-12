@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Collections.Generic;
 
 namespace JuegoPeliculas
 {
@@ -11,7 +12,7 @@ namespace JuegoPeliculas
         public string Titulo
         {
             get { return titulo; }
-            set { SetProperty(ref titulo, value);}
+            set { SetProperty(ref titulo, value); }
         }
 
         private string pista;
@@ -50,6 +51,22 @@ namespace JuegoPeliculas
             Nivel = nivel;
             Genero = genero;
         }
-     
+
+        public Pelicula(Pelicula copiaPelicula)
+        {
+            Titulo = copiaPelicula.Titulo;
+            Pista = copiaPelicula.Pista;
+            Cartel = copiaPelicula.Cartel;
+            Nivel = copiaPelicula.Nivel;
+            Genero = copiaPelicula.Genero;
+        }
+        public Pelicula()
+        {
+            Titulo = "";
+            Pista = "";
+            Cartel = "";
+            Nivel = "Media";
+            Genero = "Drama";
+        }
     }
 }
