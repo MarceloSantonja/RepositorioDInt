@@ -18,7 +18,7 @@ namespace JuegoPeliculas
 
         private ObservableCollection<Pelicula> peliculas;
         private Pelicula peliculaSeleccionada;
-        private Pelicula peliculaFormulario;
+        private Pelicula copiaPelicula;
         private ObservableCollection<string> nivel;
         private ObservableCollection<string> generos;
         private Partida partidaActual;
@@ -36,10 +36,10 @@ namespace JuegoPeliculas
             get => peliculaSeleccionada;
             set => SetProperty(ref peliculaSeleccionada, value);
         }
-        public Pelicula PeliculaFormulario
+        public Pelicula CopiaPelicula
         {
-            get => peliculaFormulario;
-            set => SetProperty(ref peliculaFormulario, value);
+            get => copiaPelicula;
+            set => SetProperty(ref copiaPelicula, value);
         }
         public ObservableCollection<string> Nivel
         {
@@ -122,7 +122,7 @@ namespace JuegoPeliculas
             else
             {
                 EstaEditando = true;
-                PeliculaFormulario = new Pelicula(PeliculaSeleccionada);
+                CopiaPelicula = new Pelicula(PeliculaSeleccionada);
             }
             
         }
@@ -168,7 +168,7 @@ namespace JuegoPeliculas
                 }
                 else
                 {
-                    PeliculaFormulario = null;
+                    CopiaPelicula = null;
                 }
                 
                 
@@ -185,8 +185,8 @@ namespace JuegoPeliculas
             else
             {
                 Peliculas.Remove(PeliculaSeleccionada);
-                Peliculas.Add(PeliculaFormulario);
-                peliculaFormulario = null;
+                Peliculas.Add(CopiaPelicula);
+                CopiaPelicula = null;
             }
 
             sDialogo.MostrarMensaje("No se ha realizado cambios", "Operación cancelada", MessageBoxImage.Exclamation);

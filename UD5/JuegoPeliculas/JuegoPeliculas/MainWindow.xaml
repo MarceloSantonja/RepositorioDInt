@@ -186,9 +186,11 @@
                                 HorizontalAlignment="Center"
                                 Height="30">
                         <Button Template="{DynamicResource ButtonControlTemplate}"
-                                Click="RetrocederBoton_Click">
+                                Click="RetrocederBoton_Click"
+                                IsEnabled="{Binding Path= ExistePartida}">
                             <Image x:Name="RetrocederBoton"
-                                   Source="assets\arrow.png" />
+                                   Source="assets\arrow.png"
+                                   />
                         </Button>
 
                         <TextBlock>
@@ -199,7 +201,8 @@
                         </TextBlock>
                         <Button x:Name="AvanzarBoton"
                                 Template="{DynamicResource ButtonControlTemplate}"
-                                Click="AvanzarBoton_Click">
+                                Click="AvanzarBoton_Click"
+                                IsEnabled="{Binding Path= ExistePartida}">
                             <Image Source="assets\arrow.png"
                                    RenderTransformOrigin="0.5,0.5">
                                 <Image.RenderTransform>
