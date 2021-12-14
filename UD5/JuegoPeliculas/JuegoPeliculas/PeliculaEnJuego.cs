@@ -16,8 +16,8 @@ namespace JuegoPeliculas
 
         private bool peliculaAdivinada;
         public bool PeliculaAdivinada { get => peliculaAdivinada; set { SetProperty(ref peliculaAdivinada, value); } }
-        private string variableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista;
-        public string VariableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista { get => variableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista; set { SetProperty(ref variableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista, value); } }
+        private string respuestaPelicula;
+        public string RespuestaPelicula { get => respuestaPelicula; set { SetProperty(ref respuestaPelicula, value); } }
 
 
 

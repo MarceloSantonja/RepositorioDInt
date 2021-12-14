@@ -11,7 +11,7 @@ namespace JuegoPeliculas
 {
     class Partida : ObservableObject
     {
-        public const int PUNTUACION_POR_PELICULA = 20;
+        public const int PUNTUACION_BASE = 20;
         public int NumeroPeliculas { get; set; }
 
         public List<PeliculaEnJuego> PeliculasPartida { get; set; }
@@ -19,6 +19,9 @@ namespace JuegoPeliculas
 
         private int puntuacion;
         public int Puntuacion { get => puntuacion; set => SetProperty(ref puntuacion, value); }
+
+        private int cantidadPeliculasAdivinadas;
+        public int CantidadPeliculasAdivinadas { get => cantidadPeliculasAdivinadas; set => SetProperty(ref cantidadPeliculasAdivinadas, value); }
 
         private PeliculaEnJuego peliculaActual;
         public PeliculaEnJuego PeliculaActual { get => peliculaActual; set => SetProperty(ref peliculaActual, value); }
@@ -43,6 +46,7 @@ namespace JuegoPeliculas
             PosicionActual = 1;
             PeliculaActual = PeliculasPartida[PosicionActual - 1];
             NumeroPeliculas = PeliculasPartida.Count;
+            cantidadPeliculasAdivinadas = 0;
         }
 
         public void AvanzaPosicion()
@@ -63,8 +67,26 @@ namespace JuegoPeliculas
         }
         public void PeliculaAcertada()
         {
+            int multiplicadorDificualtad = 0;
+
+            switch (PeliculaActual.PeliculaJuego.Nivel)
+            {
+                case "Fácil":
+                    multiplicadorDificualtad = 1;
+                    break;
+                case "Media": 
+                    multiplicadorDificualtad = 2;
+                    break;
+                case "Difícil":
+                    multiplicadorDificualtad = 3;
+                    break;
+
+
+            }
+
             PeliculaActual.PeliculaAdivinada = true;
-            Puntuacion += PeliculaActual.PistaVista ? PUNTUACION_POR_PELICULA/2 : PUNTUACION_POR_PELICULA;
+            Puntuacion += PeliculaActual.PistaVista ? 
+                                        (PUNTUACION_BASE * multiplicadorDificualtad) /2 :                     (PUNTUACION_BASE * multiplicadorDificualtad);
         }
 
 

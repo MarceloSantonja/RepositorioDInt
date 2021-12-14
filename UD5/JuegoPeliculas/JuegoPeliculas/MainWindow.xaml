@@ -125,8 +125,7 @@
                BasedOn="{StaticResource {x:Type Image}}">
             <Setter Property="Source"
                     Value="{Binding Path= PartidaActual.PeliculaActual.PeliculaJuego.Cartel}" />
-            <Setter Property="Opacity"
-                    Value="1" />
+          
             <Style.Triggers>
                <MultiDataTrigger>
                     <MultiDataTrigger.Conditions>
@@ -136,8 +135,12 @@
                                    Value="False" />
                         
                     </MultiDataTrigger.Conditions>
-                    <Setter Property="Opacity"
-                            Value="0.6" />
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <BlurEffect Radius="10" />
+                        </Setter.Value>
+                    </Setter>
+                           
                 </MultiDataTrigger>
                 <MultiDataTrigger>
                     <MultiDataTrigger.Conditions>
@@ -146,8 +149,11 @@
                         <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaAdivinada}"
                                    Value="False" />
                     </MultiDataTrigger.Conditions>
-                    <Setter Property="Opacity"
-                            Value="0.35" />
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <BlurEffect Radius="20" />
+                        </Setter.Value>
+                    </Setter>
                 </MultiDataTrigger>
                 <MultiDataTrigger>
                     <MultiDataTrigger.Conditions>
@@ -156,8 +162,11 @@
                         <Condition Binding="{Binding Path=PartidaActual.PeliculaActual.PeliculaAdivinada}"
                                    Value="False" />
                     </MultiDataTrigger.Conditions>
-                    <Setter Property="Opacity"
-                            Value="0.2" />
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <BlurEffect Radius="30" />
+                        </Setter.Value>
+                    </Setter>
                 </MultiDataTrigger>
 
             </Style.Triggers>
@@ -260,7 +269,7 @@
                                         DockPanel.Dock="Right"
                                         Click="ValidarBoton_Click" />
                                 <TextBox IsEnabled="{Binding Path=PartidaActual.PeliculaActual.PeliculaAdivinada, Converter={StaticResource BooleanoConverter}}"
-                                         Text="{Binding Path= PartidaActual.PeliculaActual.VariableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista,UpdateSourceTrigger=PropertyChanged}" /><!-- ayuda Mode... quiero que no salga el texto guardado en la propiedad sin tener que poner la propiedad a null cada vez que cambie de pelicula con los botones, se puede hacer? -->
+                                         Text="{Binding Path= PartidaActual.PeliculaActual.RespuestaPelicula,UpdateSourceTrigger=PropertyChanged}" /> 
                             </DockPanel>
 
                             <CheckBox  x:Name="PistaCheckBox"

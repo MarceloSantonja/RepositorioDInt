@@ -32,10 +32,9 @@ namespace JuegoPeliculas
             {
                 clienteContenedor.UploadBlob(nombreImagen, streamImagen);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-
-                new ServicioDialogos().MostrarMensaje("Es muy posible que se deba a que ya existe una imagen con este nombre en la nube, pero no puedo asegurartelo!", "Error subiendo la imagen a Azure", System.Windows.MessageBoxImage.Error);
+                new ServicioDialogos().MostrarMensaje("Es muy posible que se deba a que ya existe una imagen con este nombre en la nube, pero no puedo asegurartelo!", "Error subiendo la imagen a Azure","error");
             }
             
 

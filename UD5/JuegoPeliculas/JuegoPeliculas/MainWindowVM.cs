@@ -72,7 +72,7 @@ namespace JuegoPeliculas
             set { SetProperty(ref existePartida, value); }
         }
 
-       
+
 
         public MainWindowVM()
         {
@@ -85,7 +85,7 @@ namespace JuegoPeliculas
             EstaEditando = false;
             ExistePartida = false;
             EstaCreandoPelicula = false;
-          
+
         }
 
         public void CargarJson()
@@ -94,14 +94,14 @@ namespace JuegoPeliculas
             if (ruta != "")
             {
                 Peliculas = sJson.CargarJSON(ruta);
-                sDialogo.MostrarMensaje("Se han cardado " + Peliculas.Count() + " peliculas", "Cargar JSON", MessageBoxImage.Information);
+                sDialogo.MostrarMensaje("Se han cardado " + Peliculas.Count() + " peliculas", "Cargar JSON", "información");
             }
         }
         public void CargarImagen()
         {
             string ruta = sDialogo.ObtenerRutaArchivoLocal(ServicioDialogos.tipoArchivo.Imagen);
             if (ruta != "")
-                PeliculaSeleccionada.Cartel = sAzure.AlmacenarImagenEnNube( ruta);
+                PeliculaSeleccionada.Cartel = sAzure.AlmacenarImagenEnNube(ruta);
         }
         public void GuardarJson()
         {
@@ -109,22 +109,22 @@ namespace JuegoPeliculas
             if (ruta != "")
             {
                 sJson.GuardarJSON(Peliculas, ruta);
-                sDialogo.MostrarMensaje("Se han guardado las peliculas", "Guardar JSON", MessageBoxImage.Information);
+                sDialogo.MostrarMensaje("Se han guardado las peliculas", "Guardar JSON", "error");
             }
         }
         public void EditarPelicula()
         {
-            
+
             if (PeliculaSeleccionada == null)
             {
-                sDialogo.MostrarMensaje("No hay ninguna pelicula Seleccionada", "Error", MessageBoxImage.Error);
+                sDialogo.MostrarMensaje("No hay ninguna pelicula Seleccionada", "Error", "error");
             }
             else
             {
                 EstaEditando = true;
                 CopiaPelicula = new Pelicula(PeliculaSeleccionada);
             }
-            
+
         }
 
         public void CrearPelicula()
@@ -137,7 +137,7 @@ namespace JuegoPeliculas
         {
             if (PeliculaSeleccionada == null)
             {
-                sDialogo.MostrarMensaje("No hay ninguna pelicula Seleccionada", "Error", MessageBoxImage.Error);
+                sDialogo.MostrarMensaje("No hay ninguna pelicula Seleccionada", "Error", "error");
             }
             else
             {
@@ -156,7 +156,7 @@ namespace JuegoPeliculas
                                          PeliculaSeleccionada.Pista == "" ? "-La pista\n" : ""
                                          )
                                         , "Faltan datos"
-                                        , MessageBoxImage.Error);
+                                        , "error");
             }
             else
             {
@@ -170,9 +170,9 @@ namespace JuegoPeliculas
                 {
                     CopiaPelicula = null;
                 }
-                
-                
-                sDialogo.MostrarMensaje("Datos guardados con exito!!!", "Operación realizada", MessageBoxImage.Exclamation);
+
+
+                sDialogo.MostrarMensaje("Datos guardados con exito!!!", "Operación realizada", "información");
             }
         }
         public void CancelarDatos()
@@ -189,7 +189,7 @@ namespace JuegoPeliculas
                 CopiaPelicula = null;
             }
 
-            sDialogo.MostrarMensaje("No se ha realizado cambios", "Operación cancelada", MessageBoxImage.Exclamation);
+            sDialogo.MostrarMensaje("No se ha realizado cambios", "Operación cancelada", "error");
 
         }
 
@@ -203,7 +203,7 @@ namespace JuegoPeliculas
 
             if (peliculasAuxiliar.Count < TAMAÑO_PARTIDA)
             {
-                sDialogo.MostrarMensaje("No se ha podido crear la partida, no hay suficientes peliculas!!", "Nueva partida", MessageBoxImage.Error);
+                sDialogo.MostrarMensaje("No se ha podido crear la partida, no hay suficientes peliculas!!", "Nueva partida", "error");
             }
             else
             {
@@ -215,30 +215,46 @@ namespace JuegoPeliculas
                     peliculasAuxiliar.Remove(peliculasAuxiliar[posicionPelicula]);
                 }
                 PartidaActual = new Partida(peliculasPartida);
-                sDialogo.MostrarMensaje("Se ha creado la partida", "Nueva partida", MessageBoxImage.Information);
+                sDialogo.MostrarMensaje("Se ha creado la partida", "Nueva partida", "información");
             }
         }
         public void FinalizarPartida()
         {
             ExistePartida = false;
-            sDialogo.MostrarMensaje("La puntuación alcanzada ha sido: " + PartidaActual.Puntuacion, "Parida Finalizada", MessageBoxImage.Asterisk);
+            sDialogo.MostrarMensaje("La puntuación alcanzada ha sido: " + PartidaActual.Puntuacion, "Parida Finalizada", "información");
             PartidaActual = null;
         }
 
         public void ComprobarRespuesta()
         {
-            sDialogo.MostrarMensaje(PartidaActual.PeliculaActual.VariableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista, "Respuesta correcta", MessageBoxImage.Information);
-            
-            if (PartidaActual.PeliculaActual.VariableQueMeHeCreadoParaHacerBindingALaRespuestaDeUsuarioPorQueNoSePuedenPasarDatosDeLaVista ==
-                PartidaActual.PeliculaActual.PeliculaJuego.Titulo)
+            if (!PartidaActual.PeliculaActual.PeliculaAdivinada)
             {
-                sDialogo.MostrarMensaje("Pelicula acertada", "Respuesta correcta", MessageBoxImage.Information);
-                PartidaActual.PeliculaAcertada();
+                if (PartidaActual.PeliculaActual.RespuestaPelicula ==
+            PartidaActual.PeliculaActual.PeliculaJuego.Titulo)
+                {
+
+                    sDialogo.MostrarMensaje("Pelicula acertada", "Respuesta correcta", "información");
+                    PartidaActual.PeliculaAcertada();
+                    PartidaActual.CantidadPeliculasAdivinadas += 1;
+                    if (PartidaActual.CantidadPeliculasAdivinadas== 5)
+                    {
+                        sDialogo.MostrarMensaje("Has ganado", "Partida finalizada", "información");
+                        FinalizarPartida();
+                    }
+
+
+                }
+                else
+                {
+                    sDialogo.MostrarMensaje("Ese no es el titulo de la pelicula", "Respuesta incorrecta", "error");
+                }
             }
             else
             {
-                sDialogo.MostrarMensaje("Ese no es el titulo de la pelicula", "Respuesta incorrecta", MessageBoxImage.Hand);
+                sDialogo.MostrarMensaje("Esta pelicula ya esta adivinada", "Pelicula acertada", "información");
             }
+
+
         }
 
 

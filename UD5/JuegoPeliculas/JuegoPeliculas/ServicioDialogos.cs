@@ -58,8 +58,21 @@ namespace JuegoPeliculas
             return ruta;
 
         }
-        public void MostrarMensaje(in string texto, in string tituloVentana, in MessageBoxImage icono)
+        public void MostrarMensaje(in string texto, in string tituloVentana, in string nombreIcono)
         {
+            MessageBoxImage icono = MessageBoxImage.Hand;
+            switch (nombreIcono) {
+
+                case "información":
+                    icono = MessageBoxImage.Information;
+                    break;
+                case "error":
+                    icono = MessageBoxImage.Error;
+                    break;
+            }
+           
+
+
 
             MessageBox.Show(texto, tituloVentana, MessageBoxButton.OK, icono);
 
