@@ -1,0 +1,44 @@
+﻿<Application x:Class="practicaExamen.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:practicaExamen"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <ControlTemplate x:Key="TextBoxControlTemplate1"
+                         TargetType="{x:Type TextBox}">
+            <Border x:Name="border"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="3"
+                    Background="{TemplateBinding Background}"
+                    SnapsToDevicePixels="True">
+                <ScrollViewer x:Name="PART_ContentHost"
+                              Focusable="False"
+                              HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Hidden" />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter Property="Opacity"
+                            TargetName="border"
+                            Value="0.56" />
+                </Trigger>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="BorderBrush"
+                            TargetName="border"
+                            Value="#FF7EB4EA" />
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused"
+                         Value="True">
+                    <Setter Property="BorderBrush"
+                            TargetName="border"
+                            Value="#FF569DE5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+    </Application.Resources>
+</Application>
