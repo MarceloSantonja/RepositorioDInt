@@ -12,8 +12,9 @@ namespace practicaExamen
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            
-            return ((((int)value) - 32) / 1.8);
+             
+            int valorCelsius = (int)((((int)value) - 32) / 1.8);
+            return valorCelsius.ToString() +"°";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
