@@ -70,7 +70,7 @@
         </Style>
         <Style TargetType="{x:Type Image}">
             <Setter Property="Stretch"
-                    Value="Fill" />
+                    Value="UniformToFill" />
         </Style>
         <Style TargetType="{x:Type Image}"
                BasedOn="{StaticResource {x:Type Image}}"
@@ -189,7 +189,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel Style="{StaticResource JuegoDockPanel}"
-                           Margin="0,-1,-0.333,1">
+                           >
                     <StackPanel DockPanel.Dock="Bottom"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Center"
