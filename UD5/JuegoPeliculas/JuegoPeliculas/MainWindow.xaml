@@ -404,7 +404,8 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Grid Margin="5">
+                                <Grid Margin="5"
+                                      Width="150">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="150" />
                                         <RowDefinition />
@@ -413,10 +414,10 @@
                                            Source="{Binding Path= Cartel}"
                                            Height="150"
                                            VerticalAlignment="Top" />
-                                    <TextBlock Grid.Row="1"
-                                               Text="{Binding  Path=Titulo}"
-                                               TextWrapping="Wrap"
-                                               Width="100" />
+                                    <Viewbox Grid.Row="1">
+                                    <TextBlock 
+                                               Text="{Binding  Path=Titulo}"/>
+                                    </Viewbox>
                                 </Grid>
                             </DataTemplate>
 
