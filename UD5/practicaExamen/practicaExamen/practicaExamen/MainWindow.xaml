@@ -46,8 +46,7 @@
                     Value="5" />
         </Style>
         <Style TargetType="Image" x:Key="IconoImagen">
-            <Setter Property="Source"
-                    Value="imagenes\newyork1.jpg" />
+
             <Setter Property="Height"
                     Value="50" />
             <Style.Triggers>
