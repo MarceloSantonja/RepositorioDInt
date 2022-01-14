@@ -1,0 +1,30 @@
+﻿<Window x:Class="GestionPersonasU6A2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionPersonasU6A2"
+        mc:Ignorable="d"
+        Title="Personas"
+        Height="450"
+        Width="800"
+        Icon="Images\personas.ico">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal"
+                    DockPanel.Dock="Top">
+            <Button Content="Nueva persona" Width="150" Margin="5"  Height="20" Command="{Binding Path=AbrirNuevaPersonaCommand}"/>
+            <Button Content="Listado de personas"
+                    Command="{Binding Path=AbrirListadoCommand}"
+                    Width="150"
+                    Margin="5"
+                    Height="20" />
+        </StackPanel>
+        <Border BorderThickness="3"
+                BorderBrush="Black"
+                Margin="5"
+                Padding="5">
+            <ContentControl Content="{Binding Path=Opcion}" />
+        </Border>
+        
+    </DockPanel>
+</Window>
