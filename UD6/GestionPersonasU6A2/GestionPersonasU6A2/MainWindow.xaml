@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionPersonasU6A2"
+        d:DataContext="{d:DesignInstance Type=local:MainWindowVM}"
         mc:Ignorable="d"
         Title="Personas"
         Height="450"
@@ -19,7 +20,7 @@
                     Margin="5"
                     Height="20" />
         </StackPanel>
-        <Border BorderThickness="3"
+        <Border BorderThickness="2"
                 BorderBrush="Black"
                 Margin="5"
                 Padding="5">

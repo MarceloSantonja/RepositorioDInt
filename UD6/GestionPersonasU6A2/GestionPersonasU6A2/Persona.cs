@@ -34,7 +34,7 @@ namespace GestionPersonasU6A2
             set {SetProperty(ref edad, value); }
         }
 
-        public Persona(string nombre, string nacionalidad, int edad)
+        public Persona(string nombre, int edad, string nacionalidad)
         {
             Nombre = nombre;
             Nacionalidad = nacionalidad;

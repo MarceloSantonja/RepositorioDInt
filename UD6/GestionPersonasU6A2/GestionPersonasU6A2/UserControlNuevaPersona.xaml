@@ -6,7 +6,24 @@
              xmlns:local="clr-namespace:GestionPersonasU6A2"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel >
+        <TextBlock Margin="10,15,10,0" Text="Nombre" />
+        <TextBox Margin="10,0,10,0" Text="{Binding Path=Nombre}" />
+        <TextBlock Margin="10,15,10,0" Text="Edad" />
+        <TextBox Margin="10,0,10,0" Text="{Binding Path=Edad}" />
+        <TextBlock Margin="10,15,10,0"
+                   Text="Nacionalidad" />
+        <StackPanel Orientation="Horizontal"
+                    Margin="10,0,10,0" Height="20">
+            <ComboBox Width=" 150"  ItemsSource="{Binding Path=Nacionalidades}"/>
+            <Button Margin="5,0,0,0"
+                    Width="20"
+                    Content="+" 
+                    Command="{Binding Path=VentanaNacionalidadCommand}"
+                    />
+        </StackPanel>
+        <Button HorizontalAlignment="Center"
+                Content="Aceptar"
+                Width="120" IsDefault="True"/>
+    </StackPanel>
 </UserControl>

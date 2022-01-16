@@ -21,5 +21,11 @@ namespace GestionPersonasU6A2
         {
             return new UserControlNuevaPersona();
         }
+
+        internal void AbrirVentanaNavegacion()
+        {
+            AddNacionalidadWindow nueva = new AddNacionalidadWindow();
+            nueva.ShowDialog();
+        }
     }
 }

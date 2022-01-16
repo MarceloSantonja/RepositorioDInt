@@ -20,9 +20,13 @@ namespace GestionPersonasU6A2
     /// </summary>
     public partial class UserControlAbrirListado : UserControl
     {
+        private UserControlAbrirListadoVM vm;
         public UserControlAbrirListado()
         {
             InitializeComponent();
+            vm = new UserControlAbrirListadoVM();
+            this.DataContext = vm;
         }
+
     }
 }

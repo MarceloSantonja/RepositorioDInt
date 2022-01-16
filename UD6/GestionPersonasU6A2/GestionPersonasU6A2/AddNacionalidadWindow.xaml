@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:GestionPersonasU6A2"
         mc:Ignorable="d"
         Title="Añadir nacionalidad" Height="200" Width="300"
-        Icon="Images\añadir.ico">
+        Icon="Images\añadir.ico"
+        ShowInTaskbar="False" ResizeMode="NoResize">
     <StackPanel>
         <TextBlock Text="Nacionalidad" />
-        <TextBox />
+        <TextBox Text="{Binding Path=Nacionalidad}" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="AceptarButton" IsDefault="true" Content="Aceptar"
                     Height="20"

@@ -30,20 +30,17 @@ namespace GestionPersonasU6A2
             AbrirListadoCommand = new RelayCommand(AbrirListado);
             AbrirNuevaPersonaCommand = new RelayCommand(AbrirNuevaPersona);
             servicio = new ServicioNavegacion();
-            opcion = servicio.AbrirListado();
-
-
-
+            Opcion = servicio.AbrirListado();
         }
 
         private void AbrirListado()
         {
-            opcion = servicio.AbrirListado();
+            Opcion = servicio.AbrirListado();
         }
 
         private void AbrirNuevaPersona()
         {
-            opcion = servicio.AbrirNuevaPersona();
+            Opcion = servicio.AbrirNuevaPersona();
         }
     }
 }

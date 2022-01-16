@@ -19,9 +19,12 @@ namespace GestionPersonasU6A2
     /// </summary>
     public partial class AddNacionalidadWindow : Window
     {
+        private AddNacionalidadWindowVM vm;
         public AddNacionalidadWindow()
         {
             InitializeComponent();
+            vm = new AddNacionalidadWindowVM();
+            this.DataContext = vm;
         }
 
         private void AceptarButton_Click(object sender, RoutedEventArgs e)

@@ -7,6 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <ListBox ItemsSource="{Binding Path=Personas}"
+                 SelectedItem="{Binding Path=PersonaSeleccionada}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                            <Run Text="{Binding Path= Nombre}" />
+                            <Run Text=" - " />
+                            <Run Text="{Binding Path= Edad}" />
+                            <Run Text=" - " />
+                            <Run Text="{Binding Path= Nacionalidad}" />
+
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
             
+            
+        </ListBox>
     </Grid>
 </UserControl>
