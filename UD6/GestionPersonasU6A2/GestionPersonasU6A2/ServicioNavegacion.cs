@@ -10,11 +10,11 @@ namespace GestionPersonasU6A2
     class ServicioNavegacion
     {
 
-
+        private static readonly UserControl listadoPersonas = new UserControlAbrirListado();
 
         internal UserControl AbrirListado()
         {
-            return new UserControlAbrirListado();// no se tiene que crear cada vez que se llama
+            return listadoPersonas;// no se tiene que crear cada vez que se llama
         }
 
         internal UserControl AbrirNuevaPersona()

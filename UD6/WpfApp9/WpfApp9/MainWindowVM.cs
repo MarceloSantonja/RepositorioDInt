@@ -1,16 +1,18 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ejemploComando
+namespace WpfApp9
 {
     class MainWindowVM : ObservableObject
     {
-
+        private ServicioNavegacion servicio;
+        
         private int actual;
 
         public int Actual
@@ -19,27 +21,33 @@ namespace ejemploComando
             set { SetProperty(ref actual, value); }
         }
 
-
         public RelayCommand SiguienteCommand { get; }
         public RelayCommand AbrirHijaCommand { get; }
 
         public MainWindowVM()
         {
-            Actual = 0;
-
-            SiguienteCommand = new RelayCommand(Avanzar);
-            AbrirHijaCommand = new RelayCommand(AbrirHija());
             servicio = new ServicioNavegacion();
+            Actual = 0;
+            SiguienteCommand = new RelayCommand(Avanzar);
+            AbrirHijaCommand = new RelayCommand(AbrirHija);
+
+            WeakReferenceMessenger.Default.Register<MainWindowVM, ValorActualRequestMessage>(this, (r, m) =>
+            {
+                m.Reply(r.Actual);
+            });
+
         }
 
-        private Action AbrirHija()
+        private void AbrirHija()
         {
-            throw new NotImplementedException();
+            servicio.AbrirVentanaHija();
         }
 
         private void Avanzar()
         {
             Actual++;
+            WeakReferenceMessenger.Default.Send(new ValorCambiadoMessage(Actual));
+
         }
     }
 }

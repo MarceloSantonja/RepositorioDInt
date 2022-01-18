@@ -11,29 +11,15 @@ namespace GestionPersonasU6A2
 {
     class UserControlNuevaPersonaVM : ObservableObject
     {
-        private String nombre;
+        private Persona nuevaPersona;
 
-        public String Nombre
+        public Persona NuevaPersona
         {
-            get { return nombre; }
-            set { SetProperty(ref nombre, value); }
+            get { return nuevaPersona; }
+            set { SetProperty(ref nuevaPersona, value); }
         }
 
-        private String nacionalidad;
 
-        public String Nacionalidad
-        {
-            get { return nacionalidad; }
-            set { SetProperty(ref nacionalidad, value); }
-        }
-
-        private int edad;
-
-        public int Edad
-        {
-            get { return edad; }
-            set { SetProperty(ref edad, value); }
-        }
         public RelayCommand VentanaNacionalidadCommand { get; }
 
         private ObservableCollection<String> nacionalidades;

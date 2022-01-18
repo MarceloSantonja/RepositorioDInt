@@ -7,15 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel >
-        <TextBlock Margin="10,15,10,0" Text="Nombre" />
-        <TextBox Margin="10,0,10,0" Text="{Binding Path=Nombre}" />
+        <TextBlock Margin="10,15,10,0"
+                   Text="Nombre" />
+        <TextBox Margin="10,0,10,0"
+                 Text="{Binding Path=NuevaPersona.Nombre}" />
         <TextBlock Margin="10,15,10,0" Text="Edad" />
-        <TextBox Margin="10,0,10,0" Text="{Binding Path=Edad}" />
+        <TextBox Margin="10,0,10,0"
+                 Text="{Binding Path=NuevaPersona.Edad}" />
         <TextBlock Margin="10,15,10,0"
                    Text="Nacionalidad" />
         <StackPanel Orientation="Horizontal"
                     Margin="10,0,10,0" Height="20">
-            <ComboBox Width=" 150"  ItemsSource="{Binding Path=Nacionalidades}"/>
+            <ComboBox Width=" 150"  ItemsSource="{Binding Path=Nacionalidades}" SelectedItem="{Binding Path=NuevaPersona.Nacionalidad}"/>
             <Button Margin="5,0,0,0"
                     Width="20"
                     Content="+" 
