@@ -11,6 +11,7 @@ namespace GestionPersonasU6A2
     {
 
         private static readonly UserControl listadoPersonas = new UserControlAbrirListado();
+        private static readonly UserControl ConsultaPersonas = new UserControlConsultaPersona();
 
         internal UserControl AbrirListado()
         {
@@ -26,6 +27,11 @@ namespace GestionPersonasU6A2
         {
             AddNacionalidadWindow nueva = new AddNacionalidadWindow();
             nueva.ShowDialog();
+        }
+
+        internal UserControl ConsultaPersona()
+        {
+            return ConsultaPersonas;
         }
     }
 }

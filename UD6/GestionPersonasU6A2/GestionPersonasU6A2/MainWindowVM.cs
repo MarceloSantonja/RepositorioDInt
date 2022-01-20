@@ -24,13 +24,20 @@ namespace GestionPersonasU6A2
         public RelayCommand AbrirListadoCommand { get; }
 
         public RelayCommand AbrirNuevaPersonaCommand { get; }
+        public RelayCommand ConsultaPersonasCommand { get; }
 
         public MainWindowVM()
         {
             AbrirListadoCommand = new RelayCommand(AbrirListado);
             AbrirNuevaPersonaCommand = new RelayCommand(AbrirNuevaPersona);
+            ConsultaPersonasCommand = new RelayCommand(ConsultaPersona);
             servicio = new ServicioNavegacion();
             Opcion = servicio.AbrirListado();
+        }
+
+        private void ConsultaPersona()
+        {
+            Opcion = servicio.ConsultaPersona();
         }
 
         private void AbrirListado()
@@ -42,5 +49,7 @@ namespace GestionPersonasU6A2
         {
             Opcion = servicio.AbrirNuevaPersona();
         }
+
+         
     }
 }

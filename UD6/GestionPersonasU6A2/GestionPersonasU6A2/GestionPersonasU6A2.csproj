@@ -88,12 +88,18 @@
       <DependentUpon>AddNacionalidadWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddNacionalidadWindowVM.cs" />
+    <Compile Include="Mensajes.cs" />
     <Compile Include="DatosBaseService.cs" />
+    <Compile Include="NacionalidadMessage.cs" />
     <Compile Include="ServicioNavegacion.cs" />
     <Compile Include="UserControlAbrirListado.xaml.cs">
       <DependentUpon>UserControlAbrirListado.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlAbrirListadoVM.cs" />
+    <Compile Include="UserControlConsultaPersona.xaml.cs">
+      <DependentUpon>UserControlConsultaPersona.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlConsultaPersonaVM.cs" />
     <Compile Include="UserControlNuevaPersona.xaml.cs">
       <DependentUpon>UserControlNuevaPersona.xaml</DependentUpon>
     </Compile>
@@ -115,6 +121,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControlAbrirListado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlConsultaPersona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

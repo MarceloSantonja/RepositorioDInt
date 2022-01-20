@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestionPersonasU6A2
 {
-    class Persona :ObservableObject
+    public class Persona :ObservableObject
     {
 
         private String nombre;

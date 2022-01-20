@@ -19,6 +19,11 @@
                     Width="150"
                     Margin="5"
                     Height="20" />
+            <Button Content="Consulta de personas"
+                    Command="{Binding Path=ConsultaPersonasCommand}"
+                    Width="150"
+                    Margin="5"
+                    Height="20" />
         </StackPanel>
         <Border BorderThickness="2"
                 BorderBrush="Black"

@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GestionPersonasU6A2
 {
     /// <summary>
-    /// Lógica de interacción para AddNacionalidadWindow.xaml
+    /// Lógica de interacción para UserControlConsultaPersona.xaml
     /// </summary>
-    public partial class AddNacionalidadWindow : Window
+    public partial class UserControlConsultaPersona : UserControl
     {
-        private AddNacionalidadWindowVM vm;
-        public AddNacionalidadWindow()
+        public UserControlConsultaPersona()
         {
             InitializeComponent();
-            vm = new AddNacionalidadWindowVM();
-            this.DataContext = vm;
-        }
-
-        private void AceptarButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            DialogResult = true;
-
         }
     }
 }
