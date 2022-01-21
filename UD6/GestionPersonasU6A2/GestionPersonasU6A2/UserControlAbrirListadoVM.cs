@@ -37,9 +37,9 @@ namespace GestionPersonasU6A2
             WeakReferenceMessenger.Default.Register<UserControlAbrirListadoVM, PersonaActualRequestMessage>(this, (r, m)=>{
                 m.Reply(r.personaSeleccionada);
             });
-            //WeakReferenceMessenger.Default.Register<UserControlAbrirListadoVM, PersonaSeleccionadaMessage>(this, (r, m) =>
+            //WeakReferenceMessenger.Default.Register<UserControlAbrirListadoVM, NuevaPersonaMessage>(this, (r, m) =>
             //{
-            //    if (!m.HasReceivedResponse)
+                
             //        m.Reply(PersonaSeleccionada);
             //});
 
