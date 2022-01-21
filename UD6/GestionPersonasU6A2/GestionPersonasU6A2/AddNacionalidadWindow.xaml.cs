@@ -29,6 +29,7 @@ namespace GestionPersonasU6A2
 
         private void AceptarButton_Click(object sender, RoutedEventArgs e)
         {
+            vm.Aceptar();
 
             DialogResult = true;
 

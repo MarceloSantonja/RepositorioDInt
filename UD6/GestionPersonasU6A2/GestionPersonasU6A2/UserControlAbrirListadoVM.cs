@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,6 +34,15 @@ namespace GestionPersonasU6A2
         {
             ServicioPersonas = new DatosBaseService();
             Personas = ServicioPersonas.GetSamples();
+            WeakReferenceMessenger.Default.Register<UserControlAbrirListadoVM, PersonaActualRequestMessage>(this, (r, m)=>{
+                m.Reply(r.personaSeleccionada);
+            });
+            //WeakReferenceMessenger.Default.Register<UserControlAbrirListadoVM, PersonaSeleccionadaMessage>(this, (r, m) =>
+            //{
+            //    if (!m.HasReceivedResponse)
+            //        m.Reply(PersonaSeleccionada);
+            //});
+
 
         }
     }

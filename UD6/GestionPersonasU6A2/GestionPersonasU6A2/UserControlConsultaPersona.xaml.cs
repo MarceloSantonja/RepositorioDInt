@@ -15,14 +15,15 @@ using System.Windows.Shapes;
 
 namespace GestionPersonasU6A2
 {
-    /// <summary>
-    /// Lógica de interacción para UserControlConsultaPersona.xaml
-    /// </summary>
+
     public partial class UserControlConsultaPersona : UserControl
     {
+        UserControlConsultaPersonaVM vm;
         public UserControlConsultaPersona()
         {
             InitializeComponent();
+            vm = new UserControlConsultaPersonaVM();
+            this.DataContext = vm;
         }
     }
 }

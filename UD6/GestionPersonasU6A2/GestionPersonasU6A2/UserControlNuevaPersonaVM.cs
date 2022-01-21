@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,7 +22,7 @@ namespace GestionPersonasU6A2
 
 
         public RelayCommand VentanaNacionalidadCommand { get; }
-
+        public RelayCommand NuevaPersonaCommand { get; }
         private ObservableCollection<String> nacionalidades;
 
         public ObservableCollection<String> Nacionalidades
@@ -38,7 +39,18 @@ namespace GestionPersonasU6A2
             ServicioPersonas = new DatosBaseService();
             Nacionalidades = ServicioPersonas.ConseguirNacionalidades();
             VentanaNacionalidadCommand = new RelayCommand(AbrirVentanaNacionalidad);
+            NuevaPersonaCommand = new RelayCommand(CrearPersona);
             servicio = new ServicioNavegacion();
+            WeakReferenceMessenger.Default.Register<NacionalidadCambiadaMessage>(this, (r, m) =>
+            {
+                Nacionalidades.Add(m.Value);
+            });
+
+        }
+
+        private void CrearPersona()
+        {
+            WeakReferenceMessenger.Default.Send(new NuevaPersonaMessage(NuevaPersona));
         }
 
         private void AbrirVentanaNacionalidad()

@@ -11,11 +11,11 @@ namespace GestionPersonasU6A2
     {
 
         private static readonly UserControl listadoPersonas = new UserControlAbrirListado();
-        private static readonly UserControl ConsultaPersonas = new UserControlConsultaPersona();
+
 
         internal UserControl AbrirListado()
         {
-            return listadoPersonas;// no se tiene que crear cada vez que se llama
+            return listadoPersonas;
         }
 
         internal UserControl AbrirNuevaPersona()
@@ -31,7 +31,7 @@ namespace GestionPersonasU6A2
 
         internal UserControl ConsultaPersona()
         {
-            return ConsultaPersonas;
+            return new UserControlConsultaPersona(); 
         }
     }
 }

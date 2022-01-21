@@ -90,7 +90,6 @@
     <Compile Include="AddNacionalidadWindowVM.cs" />
     <Compile Include="Mensajes.cs" />
     <Compile Include="DatosBaseService.cs" />
-    <Compile Include="NacionalidadMessage.cs" />
     <Compile Include="ServicioNavegacion.cs" />
     <Compile Include="UserControlAbrirListado.xaml.cs">
       <DependentUpon>UserControlAbrirListado.xaml</DependentUpon>

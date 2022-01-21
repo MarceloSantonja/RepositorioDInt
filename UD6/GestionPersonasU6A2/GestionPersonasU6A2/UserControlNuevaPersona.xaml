@@ -27,6 +27,7 @@
         </StackPanel>
         <Button HorizontalAlignment="Center"
                 Content="Aceptar"
-                Width="120" IsDefault="True"/>
+                Width="120" IsDefault="True"
+                Command="{Binding Path=NuevaPersonaCommand}"/>
     </StackPanel>
 </UserControl>

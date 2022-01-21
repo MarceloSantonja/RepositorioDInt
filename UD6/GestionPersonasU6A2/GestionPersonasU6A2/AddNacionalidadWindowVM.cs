@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,9 @@ namespace GestionPersonasU6A2
         {
         }
 
-
-
-
+        internal void Aceptar()
+        {
+            WeakReferenceMessenger.Default.Send(new NacionalidadCambiadaMessage(Nacionalidad));
+        }
     }
 }
