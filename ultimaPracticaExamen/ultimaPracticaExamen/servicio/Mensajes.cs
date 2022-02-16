@@ -8,6 +8,8 @@ using ultimaPracticaExamen.modelo;
 
 namespace ultimaPracticaExamen.servicio
 {
+    class ComponenteRequestMessage : RequestMessage<Componente> { }
+
     class ComponenteMessage : ValueChangedMessage<Componente>
     {
         public ComponenteMessage(Componente componente) : base(componente)

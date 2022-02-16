@@ -11,7 +11,28 @@
         Height="450"
         Width="800"
         Icon=".\assets\hardware.ico">
+    
     <Window.Resources>
+
+        <Style TargetType="{x:Type Image}"
+               x:Key="tipoImagen">
+            <Setter Property="Source"
+                    Value=".\assets\tarjeta.png"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="Procesador">
+                    <Setter Property="Source"
+                            Value=".\assets\micro.png"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Placa base">
+                    <Setter Property="Source"
+                            Value=".\assets\placa.png"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+            
+            
+            
+        </Style> 
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="TextAlignment"
                     Value="Center" />
@@ -26,12 +47,23 @@
         <DockPanel  DockPanel.Dock="Left">
             <Button DockPanel.Dock="Bottom" Content="Consultar"
                     HorizontalAlignment="Center"  Command="{Binding Path=AbreUserControlCommand}"/>
-            <ListBox ItemsSource="{Binding Path=Componentes}" SelectedItem="{Binding Path=ComponenteSeleccionado}">
+            <ListBox ItemsSource="{Binding Path=Componentes}"
+                     SelectedItem="{Binding Path=ComponenteSeleccionado}">
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="200" Height="150" Background="Aquamarine" HorizontalAlignment="Center">
-                            <TextBlock TextAlignment="Center" Text="{Binding Path=Nombre}" />
-                            <TextBlock TextAlignment="Center" Text="{Binding Path=Tipo}" />
+                        <StackPanel Width="200"
+                                    Height="150"
+                                    Background="Aquamarine"
+                                    HorizontalAlignment="Center">
+                            <TextBlock FontWeight="Bold"
+                                       TextTrimming="CharacterEllipsis"
+                                       FontSize="20"
+                                       TextAlignment="Center"
+                                       Text="{Binding Path=Nombre}" />
+                            <Image  Width="120"
+                                    Style="{StaticResource tipoImagen}"
+                                    Stretch="Fill" />
                         </StackPanel>
                         
                     </DataTemplate>
