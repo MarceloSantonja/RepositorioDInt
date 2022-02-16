@@ -1,0 +1,45 @@
+﻿<Window x:Class="segundaPraticaExamenFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:segundaPraticaExamenFinal"
+        xmlns:vistamodelo="clr-namespace:segundaPraticaExamenFinal.vistamodelo"
+        d:DataContext="{d:DesignInstance Type=vistamodelo:MainWindowVM}"
+        mc:Ignorable="d"
+        Title="Componentes"
+        Height="450"
+        Width="800"
+        Icon=".\imagenes\hardware.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin"
+                    Value="5" />
+
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel Width="300"
+                   DockPanel.Dock="Left">
+            <Button Width="100"
+                    Content="Consultar"
+                    DockPanel.Dock="Bottom" />
+            <ListBox  ItemsSource="{Binding Path=Componentes}"
+                      SelectedItem="{Binding Path=ComponenteSeleccionado}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Background="Aquamarine">
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+        <Button Height="30"  HorizontalAlignment="Right"
+                Template="{DynamicResource InfoButtonControlTemplate}" Command="{Binding Path=InfoCommand}">
+            <Image Source=".\imagenes\info.ico" />
+        </Button>
+        
+        
+    </DockPanel>
+</Window>
