@@ -1,0 +1,118 @@
+﻿<Window x:Class="segundaPraticaExamenFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:segundaPraticaExamenFinal"
+        xmlns:vistamodelo="clr-namespace:segundaPraticaExamenFinal.vistamodelo"
+        d:DataContext="{d:DesignInstance Type=vistamodelo:MainWindowVM}"
+        mc:Ignorable="d"
+        Title="Componentes"
+        Height="450"
+        Width="800"
+        Icon=".\imagenes\hardware.ico">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Path=ConsultarCommand}"
+                    Key="c"
+                    Modifiers="Ctrl" />
+    </Window.InputBindings>
+    
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="ConsultarStyle">
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="IsEnabled"
+                    Value="True" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=ComponenteSeleccionado}"
+                             Value="{x:Null}">
+                    <Setter Property="IsEnabled"
+                            Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Image"
+               x:Key="ImagenComponente">
+            <Setter Property="Source"
+                    Value=".\imagenes\placa.png" />
+            <Setter Property="Height"
+                    Value="100" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="Procesador">
+                    <Setter Property="Source"
+                            Value=".\imagenes\micro.png" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Tarjeta">
+                    <Setter Property="Source"
+                            Value=".\imagenes\tarjeta.png" />
+                    <Setter Property="Opacity"
+                            Value="1" />
+                </DataTrigger>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             To="0"
+                                             Duration="0:0:3"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             To="1"
+                                             Duration="0:0:3"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="DockPanel"
+               x:Key="Dock">
+            <Setter Property="Background"
+                    Value="Aquamarine" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="Placa base">
+                    <Setter Property="Background"
+                            Value="Red" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Tarjeta">
+                    <Setter Property="Background"
+                            Value="blue" />
+                </DataTrigger>
+            </Style.Triggers>
+            
+        </Style>
+         
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel 
+                   DockPanel.Dock="Left">
+            <Button Width="100"
+                    Content="Consultar"
+                    Command="{Binding Path=ConsultarCommand}"
+                    DockPanel.Dock="Bottom"
+                    Style="{StaticResource ConsultarStyle}"/>
+            <ListBox  ItemsSource="{Binding Path=Componentes}"
+                      SelectedItem="{Binding Path=ComponenteSeleccionado}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel Style="{StaticResource Dock}" Width="300" >
+                            <TextBlock DockPanel.Dock="Top" TextTrimming="WordEllipsis" FontSize="20" TextAlignment="Center" FontWeight="Bold" Text="{Binding Path=Nombre}" />
+                            <Image Style="{StaticResource ImagenComponente}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+        <Button DockPanel.Dock="Top" Height="30"  HorizontalAlignment="Right"
+                Template="{DynamicResource InfoButtonControlTemplate}" Command="{Binding Path=InfoCommand}">
+            <Image Source=".\imagenes\info.ico" />
+        </Button>
+        <ContentControl Content="{Binding Path=ContenidoVista}" />
+
+    </DockPanel>
+</Window>
