@@ -84,6 +84,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Servicios\ImagenConverter.cs" />
+    <Compile Include="Servicios\Mensajes.cs" />
     <Compile Include="Servicios\ServicioNavegacion.cs" />
     <Compile Include="vistamodelo\InfoUserControlVM.cs" />
     <Compile Include="vistamodelo\MainWindowVM.cs" />
