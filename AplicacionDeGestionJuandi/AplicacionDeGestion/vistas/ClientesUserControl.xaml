@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="AplicacionDeGestion.vistas.ClientesUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000" Background="White">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}">
+            <Setter Property="Width" Value="80"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+            <Setter Property="SizeMode" Value="Large"></Setter>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="AñadirClienteButton" BasedOn="{StaticResource {x:Type syncfusion:ButtonAdv}}">
+            <Setter Property="IsEnabled" Value="False"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ClienteSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="True"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}" x:Key="AccionesButton" BasedOn="{StaticResource {x:Type syncfusion:ButtonAdv}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ClienteSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type syncfusion:SfDataGrid}" x:Key="DataGridEstilo">
+            <Setter Property="Background" Value="#202020"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="ColumnSizer" Value="Star"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="ItemsSource" Value="{Binding Path=ListaClientes}"/>
+            <Setter Property="SelectedItem" Value="{Binding Path=ClienteSeleccionado}"/>
+            <Setter Property="RowHeight" Value="100"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="80" >
+            <syncfusion:ButtonAdv Style="{StaticResource AñadirClienteButton}" LargeIcon="/assets/Icons/anadirCliente.png" Label="Añadir" Command="{Binding Path=AñadirClienteCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/editar.png" Label="Editar" Command="{Binding Path=ModificarClienteCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/eliminarCliente.png" Label="Eliminar" Command="{Binding Path=EliminarClienteCommand}"/>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/añadirVehiculo.png" Label="Añadir veh." Command="{Binding Path=AñadirVehiculoCommand}"></syncfusion:ButtonAdv>
+            <syncfusion:ButtonAdv Style="{StaticResource AccionesButton}" LargeIcon="/assets/Icons/borrar.png" Label="Deselección" Command="{Binding Path=DeseleccionarClienteCommand}"/>
+        </StackPanel>
+
+        <syncfusion:SfDataGrid Style="{StaticResource DataGridEstilo}">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn MappingName="Id" Width="50"  ValueBinding="{Binding Path=IdCliente}"/>
+                <syncfusion:GridImageColumn
+                                    Padding="2,2,2,2"
+                                    HeaderText="Imagen"
+                                    MappingName="ImageLink"
+                                    TextAlignment="Center"
+                                    ValueBinding="{Binding Path=Foto}" />
+                <syncfusion:GridTextColumn MappingName="Documento" ValueBinding="{Binding Path=Documento}"/>
+                <syncfusion:GridTextColumn MappingName="Nombre" ValueBinding="{Binding Path=Nombre}"/>
+                <syncfusion:GridTextColumn MappingName="Edad" ValueBinding="{Binding Path=Edad}"/>
+                <syncfusion:GridTextColumn MappingName="Genero" ValueBinding="{Binding Path=Genero}"/>
+                <syncfusion:GridTextColumn MappingName="Telefono" ValueBinding="{Binding Path=Telefono}"/>
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+
+    </DockPanel>
+</UserControl>

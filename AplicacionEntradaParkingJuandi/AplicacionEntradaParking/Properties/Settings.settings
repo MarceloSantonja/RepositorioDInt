@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AplicacionEntradaParking.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="rutaConexionBd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:/parking</Value>
+    </Setting>
+    <Setting Name="licenciaSyncfusion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NTY2OTI3QDMxMzkyZTM0MmUzMG85Q0toWFI2U2dGcVIwdjlXRHBDVGlHanpxZFlWVEJLcnZWUWtuSE5EekU9</Value>
+    </Setting>
+    <Setting Name="EndpointCustomVision" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://serviciocustomvision-prediction.cognitiveservices.azure.com/</Value>
+    </Setting>
+    <Setting Name="IdProyectoCustomVision" Type="System.String" Scope="User">
+      <Value Profile="(Default)">54b8c577-9f3f-4ba6-8ca3-c93db2c812a8</Value>
+    </Setting>
+    <Setting Name="NombrePublicadoCustomVision" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Iteration1</Value>
+    </Setting>
+    <Setting Name="customVisionKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dd24ccafdcf74d4481a473d6ae106b1e</Value>
+    </Setting>
+    <Setting Name="EndpointComputerVision" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://serviciocomputervision.cognitiveservices.azure.com/</Value>
+    </Setting>
+    <Setting Name="computerVisionKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5414b463aa5740f28f7cbf74be73c5b2</Value>
+    </Setting>
+    <Setting Name="cadenaConexionBlobStorage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DefaultEndpointsProtocol=https;AccountName=juegopeliculasjuandi;AccountKey=55hpkgqMOrvwuZDsxLmMr/l78pZCJJxaBLDQtIBWFzFKsSuHjS7i/TNpWyXVnJu7wiozsjwVpeOQtfty3asRzQ==;EndpointSuffix=core.windows.net</Value>
+    </Setting>
+    <Setting Name="nombreContenedorBlob" Type="System.String" Scope="User">
+      <Value Profile="(Default)">imagenes-peliculas</Value>
+    </Setting>
+    <Setting Name="numeroPlazasCoche" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="numeroPlazasMoto" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="AplicacionDeGestion.vistas.AñadirMarcaDialogo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplicacionDeGestion.vistas"
+        xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="Añadir marca de vehículo" Icon="../assets/Icons/iconoAñadir.ico" Height="180" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="{x:Type syncfusion:ButtonAdv}">
+            <Setter Property="Width" Value="80"></Setter>
+            <Setter Property="Margin" Value="5,5,0,0"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="90"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="Template" Value="{DynamicResource ButtonControlTemplate1}"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Margin="10">
+        <inputLayout:SfTextInputLayout Hint="Añadir marca"                                      
+                                       HintFloatMode="Float">
+            <TextBox Text="{Binding MarcaNueva}"></TextBox>
+        </inputLayout:SfTextInputLayout>
+
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="AceptarButton" Command="{Binding AceptarCommand}" Click="AceptarButton_Click" IsDefault="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/assets/Icons/accept.png" Margin="-15,0,5,0"></Image>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button IsCancel="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/assets/Icons/cancel.png" Margin="-15,0,5,0"></Image>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
