@@ -22,10 +22,10 @@ namespace ultimaPracticaExamen.VistaModelo
 
         public UserControl1VM()
         {
-            WeakReferenceMessenger.Default.Register<ComponenteMessage>(this, (r, m)=>{
-                ComponenteSeleccionado = m.Value;
-            });
-            Console.WriteLine(componenteSeleccionado.Nombre);
+            ComponenteSeleccionado = WeakReferenceMessenger.Default.Send<ComponenteRequestMessage>();
+
+         
+           
         }
     }
 }

@@ -63,12 +63,16 @@ namespace ultimaPracticaExamen.VistaModelo
             sNavegacion = new ServicioNavegacion();
             InfoCommand = new RelayCommand(AbrirInfo);
             abreUserControlCommand = new RelayCommand(AbrirUserControl);
+            WeakReferenceMessenger.Default.Register<MainWindowVM, ComponenteRequestMessage>(this, (r, m) =>
+            {
+                m.Reply(r.ComponenteSeleccionado);
+            });
+
         }
 
         private void AbrirUserControl()
         {
 
-            WeakReferenceMessenger.Default.Send(new ComponenteMessage(ComponenteSeleccionado));
             ContenidoVista = sNavegacion.AbrirUserControl();
         }
 
